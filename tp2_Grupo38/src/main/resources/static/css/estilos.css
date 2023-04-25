@@ -1,0 +1,80 @@
+/*********************** Estilos Generales ***********************/
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+/*********************** Header ***********************/
+
+header{
+	font-family: "Copperplate", fantasy;
+	text-align: center;
+	background-color: #D92525;
+}	
+
+
+/*********************** NavBar ***********************/
+
+
+.menuPrincipal {
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.menuPrincipal a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 3px solid transparent;
+}
+
+.menuPrincipal a:hover {
+  border-bottom: 3px solid red;
+}
+
+.menuPrincipal a.active {
+  border-bottom: 3px solid red;
+}
+.menuPrincipal ul li{
+display: inline
+}
+
+
+/*********************** Body ***********************/
+
+
+body {
+	background-color: #ffffff;
+}
+
+
+/*********************** Aside ***********************/
+
+
+/*********************** Footer ***********************/
+
+
+footer {
+   clear: both;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #D92525;
+   color: white;
+   text-align: center;
+   padding: 10px;
+}
+
+
+/*********************** Contenedor ***********************/
+
+.container{
+	width: 1200px;
+	margin: 0px auto; 
+}
+
