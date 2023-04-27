@@ -4,61 +4,104 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="../static/css/estilos.css" />
 <title>Servicios de Paseo</title>
 </head>
 <body>
-	<header>
-		<h1 style="text-align: center">
-			Mundo Maskota`s ToCoBi <img alt="CAT MIRANDO" src="../static/images/header.jpg" title="gato stare" style="width: 80px; height: 80px; vertical-align: bottom">
-		</h1>
-	</header>
-	<nav>
-		<ul>
-			<li style="display: inline; padding-left: 3px; padding-right: 3px;"><a href="index.html">Inicio</a></li>
-			<li style="display: inline; padding-left: 3px; padding-right: 3px;"><a href="productos.html">Productos</a></li>
-			<li style="display: inline; padding-left: 3px; padding-right: 3px;"><a href="consejosDeSalud.html">Consejos de salud</a></li>
-			<li style="display: inline; padding-left: 3px; padding-right: 3px;"><a href="servicioDePaseos.html">Servicio de paseos</a></li>
-			<li style="display: inline; padding-left: 3px; padding-right: 3px;"><a href="sucursales.html">Sucursales</a></li>
-			<li style="display: inline; padding-left: 3px; padding-right: 3px;"><a href="contactanos.html">Contáctanos</a></li>
-		</ul>
-
+	<div class="container">
+		<header>
+			<h1>
+				Mundo Maskota`s ToCoBi <img class="stare" alt="CAT MIRANDO"
+					src="../static/images/header.jpg" title="gato stare">
+			</h1>
+		</header>
+		<nav class="menuPrincipal">
+			<ul>
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="productos.html">Productos</a></li>
+				<li><a href="consejosDeSalud.html">Consejos de salud</a></li>
+				<li><a href="servicioDePaseos.html">Servicio de paseos</a></li>
+				<li><a href="sucursales.html">Sucursales</a></li>
+				<li><a class="active" href="contactanos.html">Contáctanos</a></li>
+			</ul>
 	</nav>
-	<section>
-		<table style="border:1px solid black;">
-			<tr>
-				<td style="border:1px solid black;"><strong>Día</strong></td>
-				<td style="border:1px solid black;"><strong>Lunes</strong></td>
-				<td style="border:1px solid black;"><strong>Martes</strong></td>
-				<td style="border:1px solid black;"><strong>Miércoles</strong></td>
-				<td style="border:1px solid black;"><strong>Jueves</strong></td>
-				<td style="border:1px solid black;"><strong>Viernes</strong></td>
-				<td style="border:1px solid black;"><strong>Sábado</strong></td>
-			</tr>
-			<tr>
-				<td style="border:1px solid black;"><strong>Horario</strong></td>
-				<td style="border:1px solid black;">9 a 12 - 16 a 18</td>
-				<td style="border:1px solid black;">9 a 12 - 16 a 18</td>
-				<td style="border:1px solid black;">9 a 12 - 16 a 18</td>
-				<td style="border:1px solid black;">9 a 12 - 16 a 18</td>
-				<td style="border:1px solid black;">9 a 12 - 16 a 18</td>
-				<td style="border:1px solid black;">9 a 12 - 16 a 18</td>
-			</tr>
-			<tr>
-				<td style="border:1px solid black;"><strong>Paseador</strong></td>
-				<td style="border:1px solid black;">Juan Perez</td>
-				<td style="border:1px solid black;">Lucas Diaz</td>
-				<td style="border:1px solid black;">Juan Perez</td>
-				<td style="border:1px solid black;">Maria Gomez</td>
-				<td style="border:1px solid black;">Lucas Diaz</td>
-				<td style="border:1px solid black;">Roberto Vazquez</td>
-			</tr>
-			
+	
+	<section class="contenido">
+		<table class="tablaServicioPaseos">
+			<thead>
+				<tr>
+					<th>Día</th>
+					<th>Lunes</th>
+					<th>Martes</th>
+					<th>Miércoles</th>
+					<th>Jueves</th>
+					<th>Viernes</th>
+					<th>Sábado</th>
+				</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Horario</th>
+						<td>9 a 12 - 16 a 18</td>
+						<td>9 a 12 - 16 a 18</td>
+						<td>9 a 12 - 16 a 18</td>
+						<td>9 a 12 - 16 a 18</td>
+						<td>9 a 12 - 16 a 18</td>
+						<td>9 a 12 - 16 a 18</td>
+					</tr>
+					<tr>
+						<th>Paseador</th>
+						<td>Juan Perez</td>
+						<td>Lucas Diaz</td>
+						<td>Juan Perez</td>
+						<td>Maria Gomez</td>
+						<td>Lucas Diaz</td>
+						<td>Roberto Vazquez</td>
+					</tr>
+				</tbody>
 		</table>
 	</section>
-	<aside></aside>
+	<aside class="navegadorServicioPaseo">
+		<div class="tituloperfilPaseador">
+		 <h3>PERFIL PASEADOR</h3>
+		</div>
+		
+		<div class="paseador">
+			<h3>JUAN PEREZ</h3>
+				<p>Edad: 25</p>
+				<p>Domicilio: B° Mariano Moreno.</p>
+				<p>Descripcion: Experiencia con perros grandes, paseos por plazas y se realizan actividades.</p>
+			
+		</div>
+		
+		<div class="paseador">
+			<h3>LUCAS DIAZ</h3>
+				<p>Edad: 28</p>
+				<p>Domicilio: B° Huico.</p>
+				<p>Descripcion: Adiestrador y Paseador Canino , mis paseos son por plazas y caminatas.</p>
+		</div>
+		
+		<div class="paseador">
+			<h3>MARIA GOMEZ</h3>
+			<p>
+				<p>Edad: 22</p>
+				<p>Domicilio: B° Alto Comedero.</p>
+				<p>Descripcion: Paseos en grupo o individual, pero prefiero el último ya que me gusta dedicarles el tiempo que merece cada uno.</p>
+		</div>
+		
+		<div class="paseador">	
+			<h3>ROBERTO VAZQUEZ</h3>
+			<p>
+				<p>Edad: 26</p>
+				<p>Domicilio: B° Chijra.</p>
+				<p>Descripcion:Paseos individuales o manada reducida, mucha paciencia, siempre paseando dsifrutando de estar acompañados con los perritos.</p>
+		</div>
+	
+	</aside>
 	<footer>
 		<p style="text-align: center">Copyright 2023 - Nombre del sitio - Diseñado por Grupo 38 –
 			Jujuy – República Argentina</p>
 	</footer>
+	</div>
 </body>
 </html>
