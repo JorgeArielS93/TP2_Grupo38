@@ -1,0 +1,263 @@
+/*********************** Estilos Generales ***********************/
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+/*********************** Header ***********************/
+
+header{
+	font-family: "Copperplate", fantasy;
+	text-align: center;
+	background-color: #D92525;
+}
+/* imagen */
+	
+.stare{
+	width: 80px; height: 80px;
+	vertical-align: bottom;
+}
+
+/*********************** NavBar ***********************/
+
+
+.menuPrincipal {
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.menuPrincipal a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 3px solid transparent;
+}
+
+.menuPrincipal a:hover {
+  border-bottom: 3px solid red;
+}
+
+.menuPrincipal a.active {
+  border-bottom: 3px solid red;
+}
+.menuPrincipal ul li{
+display: inline
+}
+
+
+/*********************** Body ***********************/
+
+
+body {
+	background-color: #ffffff;
+}
+
+
+/*********************** Aside ***********************/
+
+
+/*********************** Footer ***********************/
+
+
+footer {
+   clear: both;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #D92525;
+   color: white;
+   text-align: center;
+/*    padding: 10px; */
+}
+footer p {
+	padding: 10px;
+}
+
+
+/*********************** Contenedor ***********************/
+
+.container{
+	width: 1200px;
+	margin: 0px auto; 
+}
+
+
+/*********************** Pagina Inicio ***********************/
+/*********************** Pagina Contactanos ***********************/
+
+/***** Seccion *****/
+.contenido h2{
+	text-align: center;	
+}
+.contenido article{
+	text-align: justify;
+}
+.contenido{
+	float: left;
+	width: 760px;
+	min-height: 500px;
+	padding: 20px;
+}
+.contenido article p{
+	font-family: Arial, Helvetica, sans-serif;
+}
+/*****Aside ******/
+.contenido2{
+	float: left;
+	width: 400px;
+	min-height: 300px;
+}
+
+
+/*********************** Pagina Contactanos ***********************/
+
+/**** Formulario ****/
+
+.subtitulo{
+	padding: 30px 0px;
+	font-family: 'Brush Script MT', cursive;
+	color: red;
+	font-size: 24px;
+}
+.formulario{
+	border: 1px solid; 
+	width: 400px; 
+ 	margin: auto; 
+	padding: 10px 20px ;
+	background-color: #eeeeee;
+}
+.formulario form ul{
+	list-style: none;
+	
+	border-radius: 5px;
+  	padding: 20px;
+}
+
+.formulario p{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.formulario legend {
+  background-color: gray;
+  color: white;
+  padding: 5px 10px;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=email], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+.formulario form textarea {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+
+/*********************** Pagina Servicios de Paseo ***********************/
+
+.tablaServicioPaseos{
+	width:760px;
+	float:center;
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 12px;
+	table-layout: fixed;
+	border: solid 2px #FF0000;
+	box-sizing:border-box;
+	
+}
+.tablaServicioPaseos thead{
+	background: red;
+	color: #fff;
+}
+.tablaServicioPaseos tbody th:first-child{
+	background-color: red;
+	
+}
+
+.tablaServicioPaseos th{
+	padding: 10px 2px;
+	box-sizing:border-box;
+	color:#fff;
+	font-weight: 1000;
+	text-transform: uppercase;
+}
+.tablaServicioPaseos td{
+	padding: 10px;
+	border-bottom: solid 2px #F5F5F1;
+}
+.tablaServicioPaseos tbody td:hover{
+	background: #FF5252;
+}
+
+/**** Aside - Servicios de Paseo****/
+.navegadorServicioPaseo{
+	float: left;
+	width: 400px;
+	padding:30px;
+	border: solid 1px #FF0000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+	box-sizing:border-box;
+}
+.navegadorServicioPaseo h3{
+	text-align: center;
+	font-size: 14px;
+	color: white;
+	background-color: red;
+	padding: 5px;
+}
+.navegadorServicioPaseo p{
+	margin: 5px 10px;
+}
+.tituloperfilPaseador{
+	text-align: center;
+	font-size: 50px;
+	padding:5px;
+	border: solid 1px red;
+	margin-bottom: 5px;
+}
+.paseador{
+	margin-bottom: 15px;
+	border: solid 1px red;
+}
+

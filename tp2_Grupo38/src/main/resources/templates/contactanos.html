@@ -4,58 +4,73 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="../static/css/estilos.css" />
 <title>Contactenos</title>
 </head>
 <body>
-	<header>
-		<h1 style="text-align: center">
-			Mundo Maskota`s ToCoBi <img alt="CAT MIRANDO" src="../static/images/header.jpg" title="gato stare" style="width: 80px; height: 80px; vertical-align: bottom">
-		</h1>
-	</header>
-	<nav>
-		<ul>
-			<li style="display: inline; padding-left: 3px; padding-right: 3px;"><a href="index.html">Inicio</a></li>
-			<li style="display: inline; padding-left: 3px; padding-right: 3px;"><a href="productos.html">Productos</a></li>
-			<li style="display: inline; padding-left: 3px; padding-right: 3px;"><a href="consejosDeSalud.html">Consejos de salud</a></li>
-			<li style="display: inline; padding-left: 3px; padding-right: 3px;"><a href="servicioDePaseos.html">Servicio de paseos</a></li>
-			<li style="display: inline; padding-left: 3px; padding-right: 3px;"><a href="sucursales.html">Sucursales</a></li>
-			<li style="display: inline; padding-left: 3px; padding-right: 3px;"><a href="contactanos.html">Contáctanos</a></li>
-		</ul>
+	<div class="container">
+		<header>
+			<h1>
+				Mundo Maskota`s ToCoBi <img class="stare" alt="CAT MIRANDO"
+					src="../static/images/header.jpg" title="gato stare">
+			</h1>
+		</header>
+		<nav class="menuPrincipal">
+			<ul>
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="productos.html">Productos</a></li>
+				<li><a href="consejosDeSalud.html">Consejos de salud</a></li>
+				<li><a href="servicioDePaseos.html">Servicio de paseos</a></li>
+				<li><a href="sucursales.html">Sucursales</a></li>
+				<li><a class="active" href="contactanos.html">Contáctanos</a></li>
+			</ul>
 
-	</nav>
-	<section>
-		<h2 style="text-align: center;">No dude en comunicarse con nosotros, su consulta no molesta</h2>
-		<fieldset style="border: 1px solid ; width: 400px; margin:auto;">
-			<legend><strong>Datos de Contacto</strong></legend>
-			<form action="/action_page.php" id="form1" method="get">
-				<p>3915 Av. General Belgrano, 388-4237700</p>
-				<p>Lunes a Viernes: 9:00 am a 8:00 pm.</p>
-				<p>Sabado a Domingo 9:00 am a 12:30 pm.</p>
-				<p><a href="#">contactos@yopmail.com.ar</a></p>
-				<ul>
-				<li><a href="#">Facebook</a></li>
-				<li><a href="#">Instagram</a></li>
-				<li><a href="#">Twitter</a></li>
-				</ul>
-				<hr>
-				  <label for="fname">Nombre:</label>
-				  <input type="text" id="fname" name="fname" placeholder="Ingrese su nombre" required><br><br>
-				  <label for="email">Email:</label>
-				  <input type="email" id="email" name="email" placeholder="Ingrese un email válido" required><br><br>
-				  <label for="ciudad">Ciudad:</label>
-				  <input type="text" id="ciudad" name="ciudad" placeholder="Ingrese su ciudad" required><br><br>
-				  <p><label for="mensaje">Mensaje:</label></p>
-				  <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea><br><br>
-				  <input type="submit" value="Enviar">
-			</form>
-		</fieldset>
-	</section>
-	<aside>
-		<div style="float: right;"><img alt="aside" src="../static/images/aside-AS.png" title="Aside"></div>
-	</aside>
-	<footer>
-		<p style="text-align: center">Copyright 2023 - Nombre del sitio - Diseñado por Grupo 38 –
-			Jujuy – República Argentina</p>
-	</footer>
+		</nav>
+		<section class="contenido">
+			<h1 class="subtitulo">No dude en comunicarse con nosotros, su consulta no molesta!!!</h1>
+			<fieldset class="formulario">
+				<legend>
+					<strong>Datos de Contacto</strong>
+				</legend>
+				<form action="/action_page.php" id="form1" method="get">
+					<p>3915 Av. General Belgrano, 388-4237700</p>
+					<p>Lunes a Viernes: 9:00 am a 8:00 pm.</p>
+					<p>Sabado a Domingo 9:00 am a 12:30 pm.</p>
+					<p>
+						<a href="#">contactos@yopmail.com.ar</a>
+					</p>
+					<ul>
+						<li><a href="#">Facebook</a></li>
+						<li><a href="#">Instagram</a></li>
+						<li><a href="#">Twitter</a></li>
+					</ul>
+					<hr>
+					<label for="fname">Nombre:</label> <input type="text" id="fname"
+						name="fname" placeholder="Ingrese su nombre" required><br><br>
+						 
+					<label for="email">Email:</label> <input type="email"
+						id="email" name="email" placeholder="Ingrese un email válido"
+						required><br> <br>
+						
+					<label for="ciudad">Ciudad:</label><input type="text" id="ciudad" 
+					name="ciudad" placeholder="Ingrese su ciudad" required><br> <br>
+					
+					<label for="mensaje">Mensaje:</label>
+					<textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea>
+					<br> <br>
+					<input type="submit" value="Enviar">
+				</form>
+			</fieldset>
+		</section>
+		<aside class="contenido2">
+			<div>
+				<img alt="aside" src="../static/images/aside-AS.png" title="Aside">
+			</div>
+		</aside>
+		<footer>
+			<p>Copyright 2023 - Nombre del sitio - Diseñado por Grupo 38 –
+				Jujuy – República Argentina</p>
+		</footer>
+	</div>
 </body>
 </html>
