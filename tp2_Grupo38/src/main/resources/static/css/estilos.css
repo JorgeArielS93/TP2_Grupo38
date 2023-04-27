@@ -189,3 +189,75 @@ input[type=submit]:hover {
 	border-radius: 4px;
 	box-sizing: border-box;
 }
+
+
+/*********************** Pagina Servicios de Paseo ***********************/
+
+.tablaServicioPaseos{
+	width:760px;
+	float:center;
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 12px;
+	table-layout: fixed;
+	border: solid 2px #FF0000;
+	box-sizing:border-box;
+	
+}
+.tablaServicioPaseos thead{
+	background: red;
+	color: #fff;
+}
+.tablaServicioPaseos tbody th:first-child{
+	background-color: red;
+	
+}
+
+.tablaServicioPaseos th{
+	padding: 10px 2px;
+	box-sizing:border-box;
+	color:#fff;
+	font-weight: 1000;
+	text-transform: uppercase;
+}
+.tablaServicioPaseos td{
+	padding: 10px;
+	border-bottom: solid 2px #F5F5F1;
+}
+.tablaServicioPaseos tbody td:hover{
+	background: #FF5252;
+}
+
+/**** Aside - Servicios de Paseo****/
+.navegadorServicioPaseo{
+	float: left;
+	width: 400px;
+	padding:30px;
+	border: solid 1px #FF0000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+	box-sizing:border-box;
+}
+.navegadorServicioPaseo h3{
+	text-align: center;
+	font-size: 14px;
+	color: white;
+	background-color: red;
+	padding: 5px;
+}
+.navegadorServicioPaseo p{
+	margin: 5px 10px;
+}
+.tituloperfilPaseador{
+	text-align: center;
+	font-size: 50px;
+	padding:5px;
+	border: solid 1px red;
+	margin-bottom: 5px;
+}
+.paseador{
+	margin-bottom: 15px;
+	border: solid 1px red;
+}
+
