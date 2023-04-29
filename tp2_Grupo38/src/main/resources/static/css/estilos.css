@@ -229,25 +229,28 @@ input[type=submit]:hover {
 	background: #FF5252;
 }
 
-/**** Aside - Servicios de Paseo****/
-.navegadorServicioPaseo{
+.tablaPaseador{
 	float: left;
-	width: 400px;
-	padding:30px;
-	border: solid 1px #FF0000;
+	width: 760px;
+	padding:15px;
+	margin-top:10px;
+	border: solid 2px #FF0000;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
 	box-sizing:border-box;
 }
-.navegadorServicioPaseo h3{
+.tablaPaseador h3{
 	text-align: center;
 	font-size: 14px;
 	color: white;
 	background-color: red;
 	padding: 5px;
 }
-.navegadorServicioPaseo p{
+.tablaPaseador p{
 	margin: 5px 10px;
+}
+.tablaPaseador td{
+	padding: 15px;
 }
 .tituloperfilPaseador{
 	text-align: center;
@@ -260,7 +263,22 @@ input[type=submit]:hover {
 	margin-bottom: 15px;
 	border: solid 1px red;
 }
+.imagenServicioPaseo{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+.imagenServicioPaseo img{
+	width: 100px;
+	min-height: 80px;
+}
 
+/**** Aside - Servicios de Paseo****/
+.asideServicioPaseo{
+	float: left;
+	width: 400px;
+	min-height: 300px;
+}
 /*********************** Pagina Sucursal ***********************/
 
 .contenidoSucursal{
