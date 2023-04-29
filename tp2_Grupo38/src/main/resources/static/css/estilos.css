@@ -295,5 +295,6 @@ input[type=submit]:hover {
 }
 .imagen img{
 	float:right;
-	width: 33%;
+	width: 400px;
+	min-height: 300px;
 }
