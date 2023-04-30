@@ -316,3 +316,76 @@ input[type=submit]:hover {
 	width: 400px;
 	min-height: 300px;
 }
+
+/*********************** Pagina Producto.html ***********************/
+
+#listaProducto { padding: 20px; } /* Al listado se le dara un relleno de 20 piceles */
+
+#listaProducto .productos { margin-bottom:5px;}/* A cada item del  listado se le dara un margen-inferior de 5 piceles */
+
+.contenidoProducto .imagen{float:left;} /* A cada imagen del  listado se le ubicara a la izquierda */
+
+.contenidoProducto .imagen .prod1 { 
+	height:250px;
+	width:250px;
+	padding: 3px;
+}/* A cada imagen del  listado se le dara una anchura y altura de 250 piceles y un relleno de 3 piceles */
+
+.contenidoProducto .info{ 
+	border:1px solid black; 
+	padding:5px;
+	margin-bottom: 10px;
+}/* A cada info del producto del  listado se le dara un borde grueso de color negro de 1 picel , un relleno de 3 piceles y un margen inferior de 10 piceles */
+
+#listaProducto .productos details summary{
+	padding: 10px;
+	background: #D92525;
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: 1000;
+	text-transform: uppercase;
+	cursor: pointer;
+}/* A cada resumen del elemento de detalle se le dara un relleno de 10 piceles,un color rojizo, color de letra negra del tipo arial de tamaño de 15 piceles  y en mayuscula*/
+
+#listaProducto .productos details summary:hover{ background: red; } /* A cada elementoto del listado cambiara de color al posarse el mouse */
+
+.contenidoProducto .info .tituloProducto{ font-size: 26px;}/* Al titulo de cada producto dentro del  listado se le dara una letra de tamaño de 26 piceles */
+
+#listaProducto .productos details  p {
+	background-color: #eeeeee;
+	padding: 4px;
+	margin: 0;
+	box-shadow: 1px 1px 2px #bbbbbb;
+	font-family: arial, helvetica, roboto, "new times roman", lato;
+	font-size:16px;
+	font-style: normal;
+	margin-top: 9px;
+	margin-right: 6px;
+}/* Al parrafo de cada producto dentro del  listado se le dara un fondo de color gris , un relleno de 4 piceles , sin margen , sombreado, tipo de letra arial del tamaño de 16 piceles del tipo normal , margen superior de 9 piceles y un margen del lado izquierdo  de 6 piceles*/
+
+#listaProducto .productos  h6{	
+	text-align:center;
+	font-size: 1.957em;
+}/* Al precio de cada producto dentro del  listado se le dara una ubicacion en el centro  y un tamaño de letra al rededor de los 32 piceles */
+#listaProducto .productos 	div .centro{
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+} /* esta clase permite centra todo  tipo de texto e items */
+.button {
+    background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	margin:10px;
+} /*al boton de compra de cada producto se le dio un color verde de letras blancas de un relleno de 14 piceles por 20 piceles sin borde , una redondes de 4 piceles , sin decoracion y texto centrado cuyo tamaño de letra es de 16 piceles  y un margen de 20 piceles*/
+
+.button:hover { background-color: #45a049; } /*al boton de compra de cada producto se le dio un color verde un poco mas oscuro como efecto cuando el cursor pase con el mouse*/
+
