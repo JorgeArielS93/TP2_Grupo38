@@ -389,3 +389,34 @@ input[type=submit]:hover {
 
 .button:hover { background-color: #45a049; } /*al boton de compra de cada producto se le dio un color verde un poco mas oscuro como efecto cuando el cursor pase con el mouse*/
 
+/*********************** Pagina consejoDeSalud.html ***********************/
+/**************************************************************************/
+.contenidoSalud{ padding-top: 1%; } /* Al contenido se le dara un relleno inferior del 1%*/
+.contenidoconsejo{
+	padding: 5px;
+	border:5px solid burlywood;
+	outline-style: double;
+	display:inline-block;
+	margin-top:1em;
+	margin-bottom:1em;
+	margin-left: 10%;
+	margin-right: 10%;
+	} /* Al cada consejo se le dara un relleno de 5 piceles, con un borde de 5 pixeles grueso y doble, con alineacion en bloques, y margenes   */
+.contenidoconsejo .imagen{float:left;} /* la imagen de consejo de salud se ubicara a la izquierda */
+.contenidoconsejo .imagen2{float:right;} /* la imagen de consejo de salud se ubicara a la derecha */
+.contenidoconsejo .info h3 { 
+	font-family: arial, helvetica, roboto, "new times roman", lato;
+	font-size:23px;
+	font-style: normal;
+	margin-bottom:5px;
+}/* el el titulo de consejo tendra una letra arial, del tamaño de 23 piceles del tipo normal y un margen inferion del 5 piceles  */
+.fotela1consejo {
+	height:250px;
+	width:350px;
+	padding: 3px;
+}	
+.contenidoconsejo .info p {font-family: arial, helvetica, roboto, "new times roman", lato;font-size:18px;font-style: normal;}
+/* el parrafo del consejo tendra una letra del tipo arial , del tamaño de 18 piceles y estilo normal */
+
+/**************************************************************************/
+	
