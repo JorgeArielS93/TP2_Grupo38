@@ -268,8 +268,8 @@ input[type=submit]:hover {
     margin: 10px;
 }
 .imagenServicioPaseo img{
-	width: 100px;
-	min-height: 80px;
+	width: 310px;
+    height: 210px;
 }
 
 /**** Aside - Servicios de Paseo****/
@@ -417,5 +417,5 @@ input[type=submit]:hover {
 .contenidoconsejo .info p {font-family: arial, helvetica, roboto, "new times roman", lato;font-size:18px;font-style: normal;}
 /* el parrafo del consejo tendra una letra del tipo arial , del tamaño de 18 piceles y estilo normal */
 
-/***************************************************************************/
+/****************************************************************************/
 	
