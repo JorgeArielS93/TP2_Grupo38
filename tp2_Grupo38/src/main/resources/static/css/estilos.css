@@ -320,7 +320,7 @@ input[type=submit]:hover {
 
 #listaProducto { padding: 20px; } /* Al listado se le dara un relleno de 20 piceles */
 
-#listaProducto .productos { margin-bottom:5px;}/* A cada item del  listado se le dara un margen-inferior de 5 piceles */
+#listaProducto .productos { margin-bottom:5px; list-style: none;}/* A cada item del  listado se le dara un margen-inferior de 5 piceles */
 
 .contenidoProducto .imagen{float:left;} /* A cada imagen del  listado se le ubicara a la izquierda */
 
