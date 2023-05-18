@@ -13,7 +13,7 @@
 			<li><a href="productos.html">Productos</a></li>
 			<li><a href="consejosDeSalud.html">Consejos de salud</a></li>
 			<li><a th:href="@{/servicio}" th:classappend="${activeServicio}? 'active'">Servicio de paseos</a></li>
-			<li><a href="sucursales.html">Sucursales</a></li>
+			<li><a th:href="@{/sucursal}" th:classappend="${activeSucursal}? 'active'">Sucursales</a></li>
 			<li><a th:href="@{/contacto}" th:classappend="${activeContacto} ? 'active'">Contáctanos</a></li>
 		</ul>
 	</nav>
