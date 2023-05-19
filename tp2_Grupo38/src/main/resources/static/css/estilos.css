@@ -4,6 +4,31 @@
 	padding: 0;
 }
 
+/*****Boton Agregar *****/
+.buttonAdd {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.botonRojo {
+  background-color: #D92525; 
+  color: white; 
+  border: 2px solid #f44336;
+}
+
+.botonRojo:hover {
+  background-color: white;
+  color: #D92525;
+}
 
 /*********************** Header ***********************/
 
