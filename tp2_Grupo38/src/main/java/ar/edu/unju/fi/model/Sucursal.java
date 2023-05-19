@@ -2,10 +2,13 @@ package ar.edu.unju.fi.model;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Sucursal {
 	private String nombre;
 	private String direccion;
 	private String provincia;
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private LocalDate fechaInicio;
 	private String email;
 	private String telefono;
