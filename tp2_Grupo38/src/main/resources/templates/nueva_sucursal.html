@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" th:href="@{/css/estilos.css}" />
-<title>Nuevo</title>
+<title>Nueva</title>
 </head>
 <body>
 	<div class="container">
@@ -13,15 +13,15 @@
 		<nav th:replace="~{/layouts/nav :: nav}"></nav>
 		<section class="contenido">
 		<a th:href="@{/sucursal/listado}" class="buttonAdd botonRojo">Regresar</a>
-		<h2 class="subtitulo">Nueva Sucursal</h2>
+		<h2 class="subtitulo" th:text="${edicion}?'Editar Sucursal':'Nueva Sucursal'"></h2>
 		
 			<fieldset class="formulario">
 				<legend>
 					<strong>Ingrese Datos</strong>
 				</legend>
-				<form th:action="@{/sucursal/guardar}" th:object="${sucursal}" id="form2" method="post">
+				<form th:action="${edicion}?@{/sucursal/editar}:@{/sucursal/guardar}" th:object="${sucursal}"  method="post">
 					<label for="nombre">Nombre:</label>
-					<input type="text" id="nombre" name="sucursal_nombre" th:field="*{nombre}" placeholder="Ingrese su nombre Sucursal" required><br><br>
+					<input type="text" id="nombre" name="sucursal_nombre" th:field="*{nombre}" placeholder="Ingrese nombre de Sucursal" required><br><br>
 					<label for="direccion">Direccion:</label>
 					<input type="text" id="direccion" name="sucursal_direccion" th:field="*{direccion}" placeholder="Ingrese la Direccion" required><br> <br>
 					<label for="provincia">Provincia:</label>
@@ -35,7 +35,7 @@
 					<input type="email" id="email" name="sucursal_email" th:field="*{email}" placeholder="Ingrese un email" required><br><br>
 					<label for="telefono">Telefono:</label>
 					<input type="text" id="telefono" name="sucursal_telefono" th:field="*{telefono}" placeholder="Ingrese el num de Telefono" required><br><br>
-					<input type="submit" value="Guardar">
+					<input type="submit" th:value="${edicion}?'Modificar':'Guardar'">
 				</form>
 			</fieldset>
 		</section>
