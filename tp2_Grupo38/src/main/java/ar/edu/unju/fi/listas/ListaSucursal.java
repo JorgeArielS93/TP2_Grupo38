@@ -16,18 +16,13 @@ public class ListaSucursal {
 		sucursales = new ArrayList<Sucursal>();
 		/* Instancio la lista sucursales como un ArrayList vacío*/
 		
-		sucursales.add(new Sucursal("CASA CENTRAL", "Av. Fuerza Aérea N° 215", "Jujuy", LocalDate.of(2000, 12, 03), "asd1@gmail.com",
-				"3884000000"));
-		sucursales.add(new Sucursal("SUCURSAL LAVALLE", "Lavalle N° 135", "Jujuy", LocalDate.of(2005, 10, 13), "asd2@gmail.com",
-				"3884466540"));
-		sucursales.add(new Sucursal("SUCURSAL DORREGO", "Dorrego N° 385", "Jujuy", LocalDate.of(2010, 02, 19), "asd3@gmail.com",
-				"3884488640"));
-		sucursales.add(new Sucursal("SUCURSAL SAN MARTÍN", "San Martín N°539", "SALTA", LocalDate.of(2002, 07, 16), "asd4@gmail.com",
-				"3884023500"));
-		sucursales.add(new Sucursal("SUCURSAL BELGRANO", "Belgrano N°123", "SALTA", LocalDate.of(2008, 05, 02), "asd5@gmail.com",
-				"402048880"));
-		sucursales.add(new Sucursal("SUCURSAL INDEPENDENCIA", "Independencia N°105", "SALTA", LocalDate.of(2013, 9, 22), "asd6@gmail.com",
-				"3884528640"));
+		sucursales.add(new Sucursal("CASA CENTRAL", "Av. Fuerza Aérea N° 215", "Jujuy", LocalDate.of(2000, 12, 03), "asd1@gmail.com", "3884000000"));
+		sucursales.add(new Sucursal("SUCURSAL LAVALLE", "Lavalle N° 135", "Jujuy", LocalDate.of(2005, 10, 13), "asd2@gmail.com", "3884466540"));
+		sucursales.add(new Sucursal("SUCURSAL DORREGO", "Dorrego N° 385", "Jujuy", LocalDate.of(2010, 02, 19), "asd3@gmail.com", "3884488640"));
+		sucursales.add(new Sucursal("SUCURSAL SAN MARTÍN", "San Martín N°539", "SALTA", LocalDate.of(2002, 07, 16), "asd4@gmail.com", "3884023500"));
+		sucursales.add(new Sucursal("SUCURSAL BELGRANO", "Belgrano N°123", "SALTA", LocalDate.of(2008, 05, 02), "asd5@gmail.com", "402048880"));
+		sucursales.add(new Sucursal("SUCURSAL INDEPENDENCIA", "Independencia N°105", "SALTA", LocalDate.of(2013, 9, 22), "asd6@gmail.com", "3884528640"));
+
 		/* Agrego objetos de tipo Sucursal al ArrayList*/
 	}
 	

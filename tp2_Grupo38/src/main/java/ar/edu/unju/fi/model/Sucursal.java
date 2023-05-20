@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Sucursal {
+	private String id;
 	private String nombre;
 	private String direccion;
 	private String provincia;
@@ -13,19 +14,35 @@ public class Sucursal {
 	private String email;
 	private String telefono;
 	
+	private static int nextId = 1;// Variable para generar el ID incremental
+	
 	public Sucursal() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Sucursal(String nombre, String direccion, String provincia, LocalDate fechaInicio, String email,
-			String telefono) {
-		super();
-		this.nombre = nombre;
-		this.direccion = direccion;
-		this.provincia = provincia;
-		this.fechaInicio = fechaInicio;
-		this.email = email;
-		this.telefono = telefono;
+	public Sucursal(String nombre, String direccion, String provincia, LocalDate fechaInicio, String email, String telefono) {
+	    this.id = "SUC-" + nextId++;// Generar el ID incremental
+	    this.nombre = nombre;
+	    this.direccion = direccion;
+	    this.provincia = provincia;
+	    this.fechaInicio = fechaInicio;
+	    this.email = email;
+	    this.telefono = telefono;
+	}
+	
+	 /* Cada vez que se cree una nueva sucursal desde el formulario, se generará 
+	 * automáticamente un ID incremental.*/
+	
+	public static int getNextId() {//método getNextId() para obtener el próximo ID incremental.
+	    return nextId++;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getNombre() {

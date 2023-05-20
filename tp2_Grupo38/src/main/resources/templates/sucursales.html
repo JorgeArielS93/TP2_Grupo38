@@ -19,11 +19,17 @@
 			
 				<div th:each="sucu:${sucursales}">
 					<h4 th:text="${sucu.nombre}">Nombre</h4>
+					<p>ID Sucursal: <span th:text="${sucu.id}"></span></p>
 					<p>Direccion: <span th:text="${sucu.direccion}"></span></p>
 					<p>Provincia: <span th:text="${sucu.provincia}"></span> </p>
 					<p>Fecha de Apertura: <span th:text="${#temporals.format(sucu.fechaInicio, 'dd/MM/yyyy')}"></span></p>
 					<p>Email: <span th:text="${sucu.email}"></span ></p>
 					<p>Telefono: <span th:text="${sucu.telefono}"></span></p>
+					<div class="botones-accion">
+						<a th:href="@{/sucursal/editar/}+${sucu.id}" class="botonAcc botonRojo">Editar</a>
+				        <a th:href="@{/sucursal/eliminar/}+${sucu.id}" class="botonAcc botonRojo">Borrar</a>
+			        </div>
+			        
 				</div>
 			
 			</fieldset>
