@@ -1,18 +1,19 @@
 package ar.edu.unju.fi.model;
 
 public class Servicio {
+	private String dni;
 	private String paseador;
-	private int edad;
+	private String edad;
 	private String domicilio;
 	private String telefono;
 	private String honorarios;
-	
 	public Servicio() {
 		
 	}
 
-	public Servicio(String nombre, int edad, String domicilio, String telefono, String honorarios) {
+	public Servicio(String dni,String nombre, String edad, String domicilio, String telefono, String honorarios) {
 		super();
+		this.dni = dni;
 		this.paseador = nombre;
 		this.edad = edad;
 		this.domicilio = domicilio;
@@ -20,6 +21,12 @@ public class Servicio {
 		this.honorarios = honorarios;
 	}
 
+	public String getDni() {
+		return dni;
+	}
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
 	public String getNombre() {
 		return paseador;
 	}
@@ -28,11 +35,11 @@ public class Servicio {
 		this.paseador = nombre;
 	}
 
-	public int getEdad() {
+	public String getEdad() {
 		return edad;
 	}
 
-	public void setEdad(int edad) {
+	public void setEdad(String edad) {
 		this.edad = edad;
 	}
 
