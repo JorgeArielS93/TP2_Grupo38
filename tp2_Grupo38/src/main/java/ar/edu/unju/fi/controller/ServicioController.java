@@ -25,12 +25,69 @@ import ar.edu.unju.fi.model.Sucursal;
 			return "servicio_de_paseos";
 		}
 		
-		/*@GetMapping("/nuevoPaseador")
-		public String getNuevoPaseadorPage(Model model) {
+		@GetMapping("/nuevoPaseador")
+		public String getNuevoServicioPage(Model model) {
+			boolean edicion=false;
+			model.addAttribute("servicio",new Servicio());
+			model.addAttribute("edicion",edicion);
+			return "nuevo_servicio";
 			
-		}*/
+		}
 		
+		@PostMapping("/guardarServicio")
+		public ModelAndView getGuardarServicioPage(@ModelAttribute("servicio") Servicio servicio) {
+		    ModelAndView modelView = new ModelAndView("servicio_de_paseos");
+		    listaServicio.getServicio().add(servicio);
+		    modelView.addObject("servicios",listaServicio.getServicio());
+		    return modelView;
+		}
 		
+		@GetMapping("/modificarPaseador/{dni}")
+		public String getEditarServicioPage(Model model,@PathVariable(value="dni")String dni){
+			Servicio paseadorEncontrado =new Servicio();
+			boolean edicion=true;
+			for(Servicio servi : listaServicio.getServicio()) {
+				if(servi.getDni().equals(dni)) {
+				 paseadorEncontrado = servi;
+				 break;
+				}
+			}
+			model.addAttribute("servicio", paseadorEncontrado);
+			model.addAttribute("edicion",edicion);
+			return "nuevo_servicio";
+		}
 		
+		@PostMapping("/modificarPaseador")
+			public String modificarPaseador(@ModelAttribute("servicio")Servicio servicio) {
+				for(Servicio servi : listaServicio.getServicio())
+				{
+					if(servi.getDni().equals(servicio.getDni()))
+					{
+						servi.setNombre(servicio.getNombre());
+						servi.setEdad(servicio.getEdad());
+						servi.setDomicilio(servicio.getDomicilio());
+						servi.setTelefono(servicio.getTelefono());
+						servi.setHonorarios(servicio.getHonorarios());				
+					}
+				}
+				return "redirect:/servicio/listadoPaseador";		
+			}	
+		
+		@GetMapping("/eliminarPaseador/{dni}")
+		public String eliminarPaseador(@PathVariable(value="dni") String dni) {
+			
+				for(Servicio servi: listaServicio.getServicio())
+				{
+					if (servi.getDni().equals(dni)) {
+						listaServicio.getServicio().remove(servi);
+						break;
+					}
+				}
+				return "redirect:/servicio/listadoPaseador";
+		}
 }
+			
+		
+		
+
 
