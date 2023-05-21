@@ -51,20 +51,24 @@
 		 			<h3>PASEADORES</h3>
 			</div>
 			<table class=tablaPaseador2>
-		 				<tr>
-		 					<th>DNI</th>
+		 				<tr>			
 		 					<th>NOMBRE</th>
 		 					<th>EDAD</th>
 		 					<th>DOMICILIO</th>
 		 					<th>TELEFONO</th>
+		 					<th>HONORARIOS</th>
+		 					<th>ACCIONES</th>
 		 				</tr>
 		 				<tr th:each="servi: ${servicios}">
-		 					<td th:text="${servi.dni}"></td>
 		 					<td th:text="${servi.nombre}"></td>
 		 					<td th:text="${servi.edad}"></td>
 		 					<td th:text="${servi.domicilio}"></td>
 		 					<td th:text="${servi.telefono}"></td>
-		 				
+		 					<td th:text="${servi.honorarios}"></td>
+		 					<td>
+		 				     	<a th:href="@{/servicio/modificarPaseador/}+${servi.dni}" class="botonAccServ botonRojo">Editar</a>
+				      	        <a th:href="@{/servicio/eliminarPaseador/}+${servi.dni}" class="botonAccServ botonRojo">Borrar</a>
+		 					</td>
 		 				</tr>
 		 			</table>
 			</div>

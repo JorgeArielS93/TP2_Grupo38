@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/estilos.css}" />
+<title>Nuevo Servicio</title>
+</head>
+<body>
+	<div class="container">
+		<header th:replace="~{/layouts/header :: header}"></header>
+		<nav th:replace="~{/layouts/nav :: nav}"></nav>
+		<section class="contenido">
+		<a th:href="@{/servicio/listadoPaseador}" class="buttonAdd botonRojo">Regresar</a>
+				<h3 th:text="${edicion}? 'Modificar datos del Paseador':'Nuevo Paseador'"></h3>
+			<fieldset class="formulario">
+				<legend>
+					<strong>Ingrese Datos</strong>
+				</legend>
+				<form th:action="${edicion}?@{/servicio/modificarPaseador}:@{/servicio/guardarServicio}" th:object="${servicio}"  method="post">
+					<label for="dni">DNI:</label>
+					<input type="text" id="dni" name="paseador_dni" th:field="*{dni}" placeholder="Ingrese DNI del Paseador" required><br><br>
+					<label for="nombre">Nombre:</label>
+					<input type="text" id="nombre" name="paseador_nombre" th:field="*{nombre}" placeholder="Ingrese nombre del Paseador" required><br><br>
+					<label for="edad">Edad:</label>
+					<input type="text" id="edad" name="paseador_edad" th:field="*{edad}" placeholder="Ingrese Edad" required><br><br>
+					<label for="domicilio">Domicilio:</label>
+					<input type="text" id="domicilio" name="paseador_direccion" th:field="*{domicilio}" placeholder="Ingrese Domicilio" required><br> <br>
+					<label for="telefono">Telefono:</label>
+					<input type="text" id="telefono" name="paseador_telefono" th:field="*{telefono}" placeholder="Ingrese N° de Telefono" required><br><br>
+					<input type="submit" th:value="${edicion}?'Modificar':'Guardar'">
+				</form>
+			</fieldset>
+		</section>
+		<aside class="contenido2">
+			<div>
+				<img alt="aside" th:src="@{/images/aside-AS.png}" title="Aside">
+			</div>
+		</aside>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>
+</body>
+</html>
