@@ -11,7 +11,7 @@
 		<ul>
 			<li><a th:href="@{/inicio}" th:classappend="${activeInicio} ? 'active'">Inicio</a></li>
 			<li><a href="productos.html">Productos</a></li>
-			<li><a href="consejosDeSalud.html">Consejos de salud</a></li>
+			<li><a th:href="@{/consejo/listarConsejo}" th:classappend="${activeConsejos} ? 'active'">Consejos de salud</a></li>
 			<li><a th:href="@{/servicio/listadoPaseador}" th:classappend="${activeServicio}? 'active'">Servicio de paseos</a></li>
 			<li><a th:href="@{/sucursal/listado}" th:classappend="${activeSucursal}? 'active'">Sucursales</a></li>
 			<li><a th:href="@{/contacto}" th:classappend="${activeContacto} ? 'active'">Contáctanos</a></li>

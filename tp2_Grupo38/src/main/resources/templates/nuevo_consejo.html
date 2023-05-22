@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/estilos.css}" />
+<title>Nueva Consejo</title>
+</head>
+<body>
+	<div class="container">
+		<header th:replace="~{/layouts/header :: header}"></header>
+		<nav th:replace="~{/layouts/nav :: nav}"></nav>
+		
+		<section class="contenido">
+		<a th:href="@{/consejo/listarConsejo}" class="buttonAdd botonRojo">Regresar</a>
+		<h2 class="subtitulo" th:text="${edicion}?'modificar Consejo':'Nuevo Consejo'"></h2>
+		
+			<fieldset class="formulario">
+				<legend>
+					<strong>Ingrese Datos del consejo</strong>
+				</legend>
+				<form th:action="${edicion}?@{/consejo/editar}:@{/consejo/guardarconsejo}" th:object="${consej}"  method="post">
+					<label for="tituloconsejo">Titulo:</label>
+					<input type="text" id="tituloconsejo" name="consejo_titulo" th:field="*{titulo}" placeholder="Ingrese Titulo del consejo" required><br><br>
+					<label for="imagenconsejo">Imagen:</label>
+					<input type="text" id="imagenconsejo" name="imagen_consejo" th:field="*{imagen}" placeholder="Ingrese la Direccion de la imagen" required><br> <br>
+					<label for="parrafo">Parrafo:</label>
+					<textarea id="parrafo" name="parrafo" rows="4" cols="50" th:field="*{parrafo}">Ingrese Consejo .</textarea> 
+					
+					<input type="submit" th:value="${edicion}?'Modificar Consejo':'Guardar Consejo'">
+				</form>
+			</fieldset>
+		</section>
+		<aside class="contenido2">
+			<div>
+				<img alt="aside" th:src="@{/images/aside-AS.png}" title="Aside">
+			</div>
+		</aside>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>
+</body>
+</html>

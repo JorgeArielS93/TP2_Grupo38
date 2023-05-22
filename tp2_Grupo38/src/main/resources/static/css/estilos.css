@@ -514,5 +514,15 @@ input[type=submit]:hover {
 .contenidoconsejo .info p {font-family: arial, helvetica, roboto, "new times roman", lato;font-size:18px;font-style: normal;}
 /* el parrafo del consejo tendra una letra del tipo arial , del tamaño de 18 piceles y estilo normal */
 
+.botonIzquierdo {
+	display: flex;
+	text-align:right;
+	align-items: center;
+	float:right;
+	margin-bottom: -1rem;
+	margin-top: -1rem;
+	justify-content: center;
+}
+
 /****************************************************************************/
 	
