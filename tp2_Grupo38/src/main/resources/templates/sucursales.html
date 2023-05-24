@@ -4,59 +4,65 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" th:href="@{/css/estilos.css}" />
+<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link th:rel="stylesheet" type="text/css" th:href="@{/css/mis-estilos.css}" />
 <title>Sucursales</title>
 </head>
 <body>
 	<div class="container">
 		<header th:replace="~{/layouts/header :: header}"></header>
 		<nav th:replace="~{/layouts/nav :: nav}"></nav>
-	
-		<section class="contenidoSucursal">
-			<a th:href="@{/sucursal/nuevo}" class="buttonAdd botonRojo">Agregar Sucursal</a>
-			<h2 class="subtituloSucursal">Encontrá la Sucursal más cercana a tu Domicilio</h2>
-			<fieldset class="descripcionSucursal">
-			
-				<div th:each="sucu:${sucursales}">
-					<h4 th:text="${sucu.nombre}">Nombre</h4>
-					<p>ID Sucursal: <span th:text="${sucu.id}"></span></p>
-					<p>Direccion: <span th:text="${sucu.direccion}"></span></p>
-					<p>Provincia: <span th:text="${sucu.provincia}"></span> </p>
-					<p>Fecha de Apertura: <span th:text="${#temporals.format(sucu.fechaInicio, 'dd/MM/yyyy')}"></span></p>
-					<p>Email: <span th:text="${sucu.email}"></span ></p>
-					<p>Telefono: <span th:text="${sucu.telefono}"></span></p>
-					<div class="botones-accion">
-						<a th:href="@{/sucursal/editar/}+${sucu.id}" class="botonAcc botonRojo">Editar</a>
-				        <a th:href="@{/sucursal/eliminar/}+${sucu.id}" class="botonAcc botonRojo">Borrar</a>
-			        </div>
-			        
-				</div>
-			
-			</fieldset>
-<!-- 			La expresión th:each en Thymeleaf se utiliza para iterar sobre una colección de elementos y 
-				generar contenido dinámico en función de cada elemento de la colección.
-				En este caso, th:each="sucu:${sucursales}" indica que se va a iterar sobre una colección
-				llamada sucursales, y en cada iteración se utilizará la variable sucu para representar cada 
-				elemento de la colección.
-				Dentro del bloque th:each, puedes utilizar la sintaxis th:text para enlazar valores o
-				expresiones a elementos HTML y asignarles un valor dinámico. Por ejemplo,
-				th:text="${sucu.nombre}" asigna el valor del atributo nombre del objeto sucu a un elemento <h4>.
-				De manera similar, los otros elementos <p> y <span> dentro del bloque th:each utilizan
-				th:text para asignar los valores correspondientes a cada propiedad del objeto sucu.
-				En cada iteración, el contenido generado se ajustará automáticamente para reflejar los
-				valores de cada elemento en la colección sucursales.
-				En resumen, th:each se utiliza para iterar sobre una colección y generar contenido dinámico 
-				basado en los elementos de la colección, y th:text se utiliza para asignar valores dinámicos
-				a los elementos HTML. -->
-		</section>
-		<aside class="imagen">
-			<div>
-				<img alt="aside" th:src="@{/images/aside-AS.png}" title="Aside">
+		<div class="row">
+			<div class="col-md-6 col-sm-12 text-justify">
+				<section class="contenidoSucursal  px-3 ">
+					<a th:href="@{/sucursal/nuevo}" class="buttonAdd botonRojo">Agregar
+						Sucursal</a>
+					<h2 class="subtituloSucursal">Encontrá la Sucursal más cercana a tu Domicilio</h2>
+					<fieldset class="descripcionSucursal">
+
+						<div th:each="sucu:${sucursales}" class="border border-2 border-danger p-2 my-1">
+							<h4 th:text="${sucu.nombre}">Nombre</h4>
+							<p>ID Sucursal: <span th:text="${sucu.id}"></span></p>
+							<p>Direccion: <span th:text="${sucu.direccion}"></span></p>
+							<p>Provincia: <span th:text="${sucu.provincia}"></span></p>
+							<p>Fecha de Apertura: <span th:text="${#temporals.format(sucu.fechaInicio, 'dd/MM/yyyy')}"></span></p>
+							<p>Email: <span th:text="${sucu.email}"></span></p>
+							<p>Telefono: <span th:text="${sucu.telefono}"></span></p>
+							<div class="botones-accion">
+								<a th:href="@{/sucursal/editar/}+${sucu.id}" class="botonAcc botonRojo">Editar</a>
+								<a th:href="@{/sucursal/eliminar/}+${sucu.id}" class="botonAcc botonRojo">Borrar</a>
+							</div>
+
+						</div>
+
+					</fieldset>
+					<!-- 			La expresión th:each en Thymeleaf se utiliza para iterar sobre una colección de elementos y 
+						generar contenido dinámico en función de cada elemento de la colección.
+						En este caso, th:each="sucu:${sucursales}" indica que se va a iterar sobre una colección
+						llamada sucursales, y en cada iteración se utilizará la variable sucu para representar cada 
+						elemento de la colección.
+						Dentro del bloque th:each, puedes utilizar la sintaxis th:text para enlazar valores o
+						expresiones a elementos HTML y asignarles un valor dinámico. Por ejemplo,
+						th:text="${sucu.nombre}" asigna el valor del atributo nombre del objeto sucu a un elemento <h4>.
+						De manera similar, los otros elementos <p> y <span> dentro del bloque th:each utilizan
+						th:text para asignar los valores correspondientes a cada propiedad del objeto sucu.
+						En cada iteración, el contenido generado se ajustará automáticamente para reflejar los
+						valores de cada elemento en la colección sucursales.
+						En resumen, th:each se utiliza para iterar sobre una colección y generar contenido dinámico 
+						basado en los elementos de la colección, y th:text se utiliza para asignar valores dinámicos
+						a los elementos HTML. -->
+				</section>
 			</div>
-		</aside>
-		<aside class="mensajeFinal">Envíos a domicilio a cualquier parte del país</aside>
-		
+			<div class="col-md-6 col-sm-12  text-center">
+				<aside>
+					<div>
+						<img alt="aside" th:src="@{/images/aside-AS.png}" title="aside" class="img-fluid">
+					</div>
+				</aside>
+			</div>
+		</div>
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
 	</div>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
