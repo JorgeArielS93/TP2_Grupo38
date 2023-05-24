@@ -19,6 +19,8 @@
 					<strong>Ingrese Datos</strong>
 				</legend>
 				<form th:action="${edicion}?@{/servicio/modificarPaseador}:@{/servicio/guardarServicio}" th:object="${servicio}"  method="post">
+					<label for="id">ID:</label>
+					<input type="text" id="id" name="paseador_id" th:field="*{id}" required readonly><br><br>
 					<label for="dni">DNI:</label>
 					<input type="text" id="dni" name="paseador_dni" th:field="*{dni}" placeholder="Ingrese DNI del Paseador" required><br><br>
 					<label for="nombre">Nombre:</label>
