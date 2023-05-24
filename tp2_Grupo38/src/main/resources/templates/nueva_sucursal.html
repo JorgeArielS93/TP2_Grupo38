@@ -24,6 +24,7 @@
 				<form
 					th:action="${edicion}?@{/sucursal/editar}:@{/sucursal/guardar}"
 					th:object="${sucursal}" method="post">
+					<input type="hidden" th:field="*{id}">
 					<div class="mb-3">
 						<label for="nombre" class="form-label">Nombre:</label> <input
 							type="text" id="nombre" name="sucursal_nombre"
