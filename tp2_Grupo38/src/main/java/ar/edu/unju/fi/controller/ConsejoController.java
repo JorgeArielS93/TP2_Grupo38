@@ -60,21 +60,32 @@ public class ConsejoController {
 		return "nuevo_consejo";
 	}
 	
-	@GetMapping("/eliminarconsejo/{numeroConsejo}")
-	public String eliminarConsejoPage(Model model , @PathVariable(value="numeroConsejo")int numeroConsejo) {
-		ListaConsejo listaAux = new ListaConsejo();
-		for (Consejo cons : listaConsejo.getConsejo()) {
-			//if (cons.getNumConsejo()== numeroConsejo) {
-				//listaConsejo.getConsejo().remove(cons.getNumConsejo());
-			//}
-			if(cons.getNumConsejo()!= numeroConsejo) {
-				listaAux.getConsejo().add(cons);
-			}
-			//break;
-		}
-		listaConsejo=listaAux;
-		return "redirect:/consejo/listarConsejo";
+//	@GetMapping("/eliminarconsejo/{numeroConsejo}")
+//	public String eliminarConsejoPage(Model model , @PathVariable(value="numeroConsejo")int numeroConsejo) {
+//		ListaConsejo listaAux = new ListaConsejo();
+//		for (Consejo cons : listaConsejo.getConsejo()) {
+//			//if (cons.getNumConsejo()== numeroConsejo) {
+//				//listaConsejo.getConsejo().remove(cons.getNumConsejo());
+//			//}
+//			if(cons.getNumConsejo()!= numeroConsejo) {
+//				listaAux.getConsejo().add(cons);
+//			}
+//			//break;
+//		}
+//		listaConsejo=listaAux;
+//		return "redirect:/consejo/listarConsejo";
+//	
+//	}
 	
+	@GetMapping("/eliminarconsejo/{numeroConsejo}")
+	public String eliminarConsejoPage(Model model, @PathVariable(value="numeroConsejo") int numeroConsejo) {
+	    for (Consejo cons : listaConsejo.getConsejo()) {
+	    	if (cons.getNumConsejo() == numeroConsejo) {
+	    	    listaConsejo.getConsejo().remove(cons);
+	    	    break;
+	    	}
+	    }
+	    return "redirect:/consejo/listarConsejo";
 	}
 	
 	@PostMapping("/editar")
