@@ -1,47 +1,56 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
+<!-- Required meta tags -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Bootstrap CSS and other CSS -->
 <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
-<link th:rel="stylesheet" type="text/css" th:href="@{/css/mis-estilos.css}" />
-<link rel="stylesheet" th:href="@{/css/estilos.css}" />
+<link th:rel="stylesheet" type="text/css" th:href="@{/css/mis-estilos.css}"/>
+<!--  <link rel="stylesheet" th:href="@{/css/estilos.css}" />  -->
+
+<!-- Title of Sites -->
 <title>Consejos de Salud</title>
+
 </head>
 <body>
 	<div class="container">
 		<header th:replace="~{/layouts/header :: header}"></header>
 		<nav th:replace="~{/layouts/nav :: nav}"></nav>
 		<div class="row">
-			<section class="contenidoSalud">
-			<h2> La Salud de tu Mascota </h2>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-justify">
+				<section class="">
+					<h2 class="text-justify"> La Salud de tu Mascota </h2>
 					<article>
-						<h3 class="col  col-sm-12 col-xs-12 col-lg-9 col-md-9"> • 8 consejos para tener una mascota saludable 
-						<a th:href="@{/consejo/nuevoconsejo}" class="botonAcc button  col-lg-3 col-md-3  col-sm-12 col-xs-12">Agregar Consejo</a>
-						</h3>
-						
-						
-						<div class="card mb-3 sombra" th:each="consejito : ${consejo}">
-						  <div class="row no-gutters">
-						    <div class="col-md-4 col-sm-12 ">
-						      <img class="card-img-top fotela1consejo  d-none d-md-block" th:src="${consejito.imagen}"   alt="Card image cap">
-						    </div>
-						    <div class="col-md-8 col-sm-12">
-						      <div class="card-body">
-						        <h5 class="card-title"th:text="${consejito.numConsejo}+'- '+${consejito.titulo}"></h5>
-						        <p class="card-text" th:text="${consejito.parrafo}"></p>
-						        <a th:href="@{/consejo/modificarconsejo/}+${consejito.numConsejo}" class="btn btn-primary ">Editar</a>
-		                		<a th:href="@{/consejo/eliminarconsejo/}+${consejito.numConsejo}" class="btn btn-danger">Borrar</a>
-						      </div>
-						    </div>
-						  </div>
+						<div  class="row">
+							<h3 class="col  col-sm-12 col-xs-12 col-lg-9 col-md-9"> • 8 consejos para tener una mascota saludable </h3>
+							<a th:href="@{/consejo/nuevoconsejo}" role="button" class="btn btn-success btn-lg  col-lg-3 col-md-3  col-sm-12 col-xs-12 ">Agregar Consejo</a>
 						</div>
-						
+						<div class="card sombra mb-1 mt-2" th:each="consejito : ${consejo}">
+						  	<div class="row no-gutters">
+						    	<div class="col-md-4 col-lg-4 ">
+						      		<img class="card-img-top fotela1consejo  d-none d-md-block" th:src="${consejito.imagen}"   alt="Card image cap">
+						    	</div>
+						    	<div class="col-md-8 col-sm-12 col-xs-12">
+							      	<div class="card-body">
+							        	<h5 class="card-title"th:text="${consejito.numConsejo}+'- '+${consejito.titulo}"></h5>
+							        	<p class="card-text" th:text="${consejito.parrafo}"></p>
+							        	<a th:href="@{/consejo/modificarconsejo/}+${consejito.numConsejo}" class="btn btn-primary text-right">Editar</a>
+			                			<a th:href="@{/consejo/eliminarconsejo/}+${consejito.numConsejo}" class="btn btn-danger text-right">Borrar</a>
+							      	</div>
+						    	</div>
+						  	</div>
+						</div>	
 					</article>
 				</section>
+			</div>
 		</div>
-	</div>			
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>
+	
+				
 	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

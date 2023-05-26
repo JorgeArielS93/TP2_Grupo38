@@ -1,43 +1,68 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
+<!-- Required meta tags -->
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" th:href="@{/css/estilos.css}" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Bootstrap CSS and other CSS -->
+<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link th:rel="stylesheet" type="text/css" th:href="@{/css/mis-estilos.css}"/>
+<!--  <link rel="stylesheet" th:href="@{/css/estilos.css}" />  -->
+
+<!-- Title of Sites -->
 <title>Nueva Consejo</title>
+
+
 </head>
 <body>
 	<div class="container">
 		<header th:replace="~{/layouts/header :: header}"></header>
 		<nav th:replace="~{/layouts/nav :: nav}"></nav>
-		
-		<section class="contenido">
-		<a th:href="@{/consejo/listarConsejo}" class="buttonAdd botonRojo">Regresar</a>
-		<h2 class="subtitulo" th:text="${edicion}?'modificar Consejo':'Nuevo Consejo'"></h2>
-		
-			<fieldset class="formulario">
-				<legend>
-					<strong>Ingrese Datos del Consejo</strong>
-				</legend>
-				<form th:action="${edicion}?@{/consejo/editar}:@{/consejo/guardarconsejo}" th:object="${consej}"  method="post">
-					<label for="tituloconsejo">Titulo del Consejo:</label>
-					<input type="text" id="tituloconsejo" name="consejo_titulo" th:field="*{titulo}" placeholder="Ingrese Titulo del consejo" required><br><br>
-					<label for="imagenconsejo">link o Url de la Imagen:</label>
-					<input type="text" id="imagenconsejo" name="imagen_consejo" th:field="*{imagen}" placeholder="Ingrese la Direccion de la imagen" required><br> <br>
-					<label for="parrafo">Parrafo:</label>
-					<textarea id="parrafo" name="parrafo" rows="4" cols="50" th:field="*{parrafo}">Ingrese Consejo .</textarea> 
+		<div class="row ">
+			<div class="col-md-8 col-sm-12 text-justify p-2">
+				<section class="contenido">
+					<a th:href="@{/sucursal/listado}" class="buttonAdd botonRojo mx-3">Regresar</a>
+					<h2 class="subtitulo  text-center" th:text="${edicion}?'modificar Consejo':'Nuevo Consejo'"></h2>
+					<fieldset class="formulario  border border-2 border-danger p-2 my-1 mx-3 formularioConsejo">
+						<legend class="text-center">
+							<strong>Ingrese Datos del Consejo</strong>
+						</legend>
+						<form th:action="${edicion}?@{/consejo/editar}:@{/consejo/guardarconsejo}" th:object="${consej}"  method="post" class="formularioConsejo">
+							<div class="form-row">
+								<div class="form-group ">
+								    <label for="tituloconsejo">Titulo del Consejo:</label>
+									<input type="text" id="tituloconsejo" name="consejo_titulo" class="form-control" th:field="*{titulo}" placeholder="Ingrese Titulo del consejo" required>
+								</div>
+								<div class="form-group ">
+									<label for="imagenconsejo">link o Url de la Imagen:</label>
+									<input type="text" id="imagenconsejo" name="imagen_consejo" class="form-control" th:field="*{imagen}" placeholder="Ingrese la Direccion de la imagen" required>
+								</div>
+								<div class="form-group ">
+									<label for="parrafo">Parrafo:</label>
+									<textarea id="parrafo" name="parrafo"  class="form-control" rows="4" cols="50" th:field="*{parrafo}">Ingrese Consejo .</textarea> 
+									<div class="invalid-feedback">
+	      								Por favor ingrese parrafo en el area de texto.
+	    							</div>
+								</div>
+								<input class="btn btn-success text-center mb-3 mt-3  col-lg-12 col-md-12 col-sm-12 col-xs-12" type="submit" th:value="${edicion}?'Modificar Consejo':'Guardar Consejo'">
+							</div>
+						</form>
+					</fieldset>
 					
-					<input type="submit" th:value="${edicion}?'Modificar Consejo':'Guardar Consejo'">
-				</form>
-			</fieldset>
-		</section>
-		<aside class="contenido2">
-			<div>
-				<img alt="aside" th:src="@{/images/aside-AS.png}" title="Aside">
+				</section>
 			</div>
-		</aside>
+			<div class="col-md-4 col-sm-12  text-center  d-none d-md-block">
+				<aside>
+					<div>
+						<img alt="aside" th:src="@{/images/aside-AS.png}" title="aside" class="img-fluid">
+					</div>
+				</aside>
+			</div>	
+		</div>
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
 	</div>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

@@ -140,3 +140,35 @@ footer p {
 .formulario{
 	background-color: #eeeeee;
 }
+
+/***************************************************************************************************/
+				/*********************** Pagina ConsejoDeSalud ***********************/
+/***************************************************************************************************/	
+.btn-agregarConsejo{
+	background-color: #4CAF50; /* Green */
+	margin-left:5%;
+	margin-right: 5%;
+}			
+.sombra:hover{
+        box-shadow: 0 0 45px gray;
+}
+.fotela1consejo {
+	height:100%;
+	width:110%;
+	padding: 3px;
+	background-color: rgba(0, 0, 0, 0);
+}	    				
+
+
+/*************************************** Nuevo ConsejoDeSalud **************************************/
+
+.formularioConsejo .form-group{
+	margin: 5%;
+}
+.formularioConsejo legend {
+  background-color: gray;
+  color: white;
+  padding: 5px 10px;
+}
+
+/***************************************************************************************************/
