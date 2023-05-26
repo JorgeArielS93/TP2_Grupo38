@@ -507,9 +507,10 @@ input[type=submit]:hover {
 	margin-bottom:5px;
 }/* el el titulo de consejo tendra una letra arial, del tamaño de 23 piceles del tipo normal y un margen inferion del 5 piceles  */
 .fotela1consejo {
-	height:250px;
-	width:350px;
+	height:100%;
+	width:110%;
 	padding: 3px;
+	background-color: rgba(0, 0, 0, 0);
 }	
 .contenidoconsejo .info p {font-family: arial, helvetica, roboto, "new times roman", lato;font-size:18px;font-style: normal;}
 /* el parrafo del consejo tendra una letra del tipo arial , del tamaño de 18 piceles y estilo normal */
@@ -525,4 +526,9 @@ input[type=submit]:hover {
 }
 
 /****************************************************************************/
-	
+    .sombra:hover{
+        box-shadow: 0 0 45px gray;
+    }
+    
+    
+    

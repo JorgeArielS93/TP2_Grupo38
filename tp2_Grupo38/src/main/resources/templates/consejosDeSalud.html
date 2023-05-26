@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link th:rel="stylesheet" type="text/css" th:href="@{/css/mis-estilos.css}" />
 <link rel="stylesheet" th:href="@{/css/estilos.css}" />
 <title>Consejos de Salud</title>
 </head>
@@ -11,31 +13,35 @@
 	<div class="container">
 		<header th:replace="~{/layouts/header :: header}"></header>
 		<nav th:replace="~{/layouts/nav :: nav}"></nav>
-		
-		<section class="contenidoSalud">
+		<div class="row">
+			<section class="contenidoSalud">
 			<h2> La Salud de tu Mascota </h2>
-			<article>
-				<h3> • 8 consejos para tener una mascota saludable 
-				<a th:href="@{/consejo/nuevoconsejo}" class="botonAcc button botonIzquierdo">Agregar Consejo</a>
-				</h3>
-				<div class="contenidoconsejo" th:each="consejito : ${consejo}">
-					<div class="imagen">
-						<img  th:src="${consejito.imagen}"   src="../static/images/mascota7.jpg" class="fotela1consejo" alt="juguete 1" >
-					</div>
-					<div class="info">
-						<h3 th:text="${consejito.titulo}"></h3>
-						<p th:text="${consejito.parrafo}">
-							
-						<div class="botones-accion">
-							<a  class="botonAcc botonRojo" th:href="@{/consejo/modificarconsejo/}+${consejito.titulo}">Editar</a>
-							<a  class="botonAcc botonRojo" th:href="@{/consejo/eliminarconsejo/}+${consejito.titulo}">Borrar</a>
+					<article>
+						<h3 class="col  col-sm-12 col-xs-12 col-lg-9 col-md-9"> • 8 consejos para tener una mascota saludable 
+						<a th:href="@{/consejo/nuevoconsejo}" class="botonAcc button  col-lg-3 col-md-3  col-sm-12 col-xs-12">Agregar Consejo</a>
+						</h3>
+						
+						
+						<div class="card mb-3 sombra" th:each="consejito : ${consejo}">
+						  <div class="row no-gutters">
+						    <div class="col-md-4 col-sm-12 ">
+						      <img class="card-img-top fotela1consejo  d-none d-md-block" th:src="${consejito.imagen}"   alt="Card image cap">
+						    </div>
+						    <div class="col-md-8 col-sm-12">
+						      <div class="card-body">
+						        <h5 class="card-title"th:text="${consejito.numConsejo}+'- '+${consejito.titulo}"></h5>
+						        <p class="card-text" th:text="${consejito.parrafo}"></p>
+						        <a th:href="@{/consejo/modificarconsejo/}+${consejito.numConsejo}" class="btn btn-primary ">Editar</a>
+		                		<a th:href="@{/consejo/eliminarconsejo/}+${consejito.numConsejo}" class="btn btn-danger">Borrar</a>
+						      </div>
+						    </div>
+						  </div>
 						</div>
-						</p>		
-					</div>	
-				</div>
-			</article>
-		</section>
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
-	</div>
+						
+					</article>
+				</section>
+		</div>
+	</div>			
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

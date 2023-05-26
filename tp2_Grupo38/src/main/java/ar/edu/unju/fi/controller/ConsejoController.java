@@ -43,32 +43,57 @@ public class ConsejoController {
 	}
 	
 	
-	
-	@GetMapping("/modificarconsejo/{titulo}")
-	public String modificarConsejoPage(Model model , @PathVariable(value="titulo")String titulo) {
+	@GetMapping("/modificarconsejo/{numeroConsejo}")
+	public String modificarConsejoPage(Model model , @PathVariable(value="numeroConsejo")int numeroConsejo) {
 		Consejo consejoEncontrado = new Consejo();
 		boolean edicion = true;
 		for (Consejo cons : listaConsejo.getConsejo()) {
-			if (cons.getTitulo().equals(titulo)) {
+			if (cons.getNumConsejo()== numeroConsejo) {
 				consejoEncontrado = cons;
 				//cons.setTitulo(consej.);
 				break;
 			}
+			
 		}
 		model.addAttribute("consej", consejoEncontrado);
 		model.addAttribute("edicion", edicion);
 		return "nuevo_consejo";
 	}
 	
-	@GetMapping("/eliminarconsejo/{titulo}")
-	public String eliminarConsejoPage(Model model , @PathVariable(value="titulo")String titulo) {
+	@GetMapping("/eliminarconsejo/{numeroConsejo}")
+	public String eliminarConsejoPage(Model model , @PathVariable(value="numeroConsejo")int numeroConsejo) {
+		ListaConsejo listaAux = new ListaConsejo();
 		for (Consejo cons : listaConsejo.getConsejo()) {
-			if (cons.getTitulo().equals(titulo)) {
-				listaConsejo.getConsejo().remove(cons);
+			//if (cons.getNumConsejo()== numeroConsejo) {
+				//listaConsejo.getConsejo().remove(cons.getNumConsejo());
+			//}
+			if(cons.getNumConsejo()!= numeroConsejo) {
+				listaAux.getConsejo().add(cons);
 			}
-			break;
+			//break;
 		}
+		listaConsejo=listaAux;
 		return "redirect:/consejo/listarConsejo";
 	
-	}	
+	}
+	
+	@PostMapping("/editar")
+	public String modificarSucursal(@ModelAttribute("nsucursal") Consejo consejo) {
+	    for (Consejo cons : listaConsejo.getConsejo()) {
+	        if (cons.getNumConsejo()== consejo.getNumConsejo()) {
+	        	cons.setNumConsejo(consejo.getNumConsejo());
+	        	cons.setTitulo(consejo.getTitulo());
+	        	cons.setParrafo(consejo.getParrafo());
+	        	cons.setImagen(consejo.getImagen());
+	        	//cons=consejo;
+	        	//listaConsejo.getConsejo().add(cons);
+	        	//listaConsejo.getConsejo().remove(cons);
+	        	//listaConsejo.getConsejo().add(new Consejo(consejo.getNumConsejo(),consejo.getTitulo(),consejo.getParrafo(),consejo.getImagen()));
+	        	
+	        	break; // Agregar un break después de realizar las modificaciones
+	        }
+	    }
+
+	    return "redirect:/consejo/listarConsejo";
+	}
 }
