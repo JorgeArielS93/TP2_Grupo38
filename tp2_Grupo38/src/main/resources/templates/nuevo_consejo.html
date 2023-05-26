@@ -18,12 +18,12 @@
 		
 			<fieldset class="formulario">
 				<legend>
-					<strong>Ingrese Datos del consejo</strong>
+					<strong>Ingrese Datos del Consejo</strong>
 				</legend>
 				<form th:action="${edicion}?@{/consejo/editar}:@{/consejo/guardarconsejo}" th:object="${consej}"  method="post">
-					<label for="tituloconsejo">Titulo:</label>
+					<label for="tituloconsejo">Titulo del Consejo:</label>
 					<input type="text" id="tituloconsejo" name="consejo_titulo" th:field="*{titulo}" placeholder="Ingrese Titulo del consejo" required><br><br>
-					<label for="imagenconsejo">Imagen:</label>
+					<label for="imagenconsejo">link o Url de la Imagen:</label>
 					<input type="text" id="imagenconsejo" name="imagen_consejo" th:field="*{imagen}" placeholder="Ingrese la Direccion de la imagen" required><br> <br>
 					<label for="parrafo">Parrafo:</label>
 					<textarea id="parrafo" name="parrafo" rows="4" cols="50" th:field="*{parrafo}">Ingrese Consejo .</textarea> 
