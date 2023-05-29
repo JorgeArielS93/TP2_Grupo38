@@ -185,6 +185,7 @@ footer p {
 .formulario{
 	border: 1px solid; 
 	width: 400px; 
+	float: left;
  	margin: auto; 
 	padding: 10px 20px ;
 	background-color: #eeeeee;
@@ -252,7 +253,7 @@ input[type=submit]:hover {
 /*********************** Pagina Servicios de Paseo ***********************/
 
 .tablaServicioPaseos{
-	width:760px;
+
 	color: #000;
 	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
@@ -288,7 +289,7 @@ input[type=submit]:hover {
 
 .tablaPaseador{
 	float: left;
-	width: 760px;
+
 	padding:10px;
 	margin-top:10px;
 	border: solid 2px #FF0000;
@@ -299,8 +300,8 @@ input[type=submit]:hover {
 .tablaPaseador2{
 	float: left;
 	width: 736px;
-	padding:10px;
-	margin-top:10px;
+	padding:10px;	margin-top:10px;
+
 	border: solid 2px #FF0000;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
@@ -369,12 +370,7 @@ input[type=submit]:hover {
 	font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-/**** Aside - Servicios de Paseo****/
-.asideServicioPaseo{
-	float: left;
-	width: 400px;
-	min-height: 300px;
-}
+
 /*********************** Pagina Sucursal ***********************/
 
 .contenidoSucursal{
