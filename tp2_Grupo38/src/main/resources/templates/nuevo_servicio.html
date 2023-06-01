@@ -4,13 +4,16 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
 <link rel="stylesheet" th:href="@{/css/estilos.css}" />
-<title>Nuevo Servicio</title>
+<title th:text="${edicion}? 'Modificar datos del Paseador':'Nuevo Paseador'"></title>
 </head>
 <body>
 	<div class="container">
 		<header th:replace="~{/layouts/header :: header}"></header>
 		<nav th:replace="~{/layouts/nav :: nav}"></nav>
+		<div class="row">
+		<div class="col-md-8 col-sm-12">
 		<section class="contenido">
 		<a th:href="@{/servicio/listadoPaseador}" class="buttonAdd botonRojo">Regresar</a>
 				<h3 th:text="${edicion}? 'Modificar datos del Paseador':'Nuevo Paseador'"></h3>
@@ -20,7 +23,7 @@
 				</legend>
 				<form th:action="${edicion}?@{/servicio/modificarPaseador}:@{/servicio/guardarServicio}" th:object="${servicio}"  method="post">
 					<label for="id">ID:</label>
-					<input type="text" id="id" name="paseador_id" th:field="*{id}" required readonly><br><br>
+					<input type="text" id="id" name="paseador_id" th:field="*{id}" placeholder="ASIGNACION AUTOMATICA" required readonly><br><br>
 					<label for="dni">DNI:</label>
 					<input type="text" id="dni" name="paseador_dni" th:field="*{dni}" placeholder="Ingrese DNI del Paseador" required><br><br>
 					<label for="nombre">Nombre:</label>
@@ -37,12 +40,17 @@
 				</form>
 			</fieldset>
 		</section>
-		<aside class="contenido2">
+		</div>
+		<div class="col-md-4 col-sm-12  text-center">
+		<aside>
 			<div>
 				<img alt="aside" th:src="@{/images/aside-AS.png}" title="Aside">
 			</div>
 		</aside>
+		</div>
+		</div>
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
 	</div>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
