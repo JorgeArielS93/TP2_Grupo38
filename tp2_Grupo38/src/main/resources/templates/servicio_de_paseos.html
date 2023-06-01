@@ -13,7 +13,7 @@
 	<header th:replace="~{/layouts/header :: header}"></header>
 	<nav th:replace="~{/layouts/nav :: nav}"></nav>
 	<div class="row">
-	<div class="col-md-6 col-sm-12 col-ls-8">
+	<div class="col-md-12 col-sm-12 col-ls-8">
 	<section>
 		<table class="tablaServicioPaseos">
 			<thead>
@@ -47,11 +47,12 @@
 						<td>Roberto Vazquez</td>
 					</tr>
 				</tbody>
-		</table>	
-				<a th:href="@{/servicio/nuevoPaseador}" class="buttonAdd botonRojo">Agregar Paseador</a>	 			
-	<div class="tablaPaseador">
-		 			<h3>PASEADORES</h3>			
-			<table class="tablaPaseador2">
+		</table>
+		<div>
+		<a th:href="@{/servicio/nuevoPaseador}" class="buttonAdd botonRojo">Agregar Paseador</a>
+		</div>
+		 			<h3 class="tituloPaseador">PASEADORES</h3>			
+			<table class="tablaPaseador">
 		 				<tr>		
 		 					<th >DNI</th>	
 		 					<th>NOMBRE</th>
@@ -74,10 +75,10 @@
 		 					</td>
 		 				</tr>
 		 			</table>
-		 			</div>	 				
+		 	 				
 	</section>
 	</div>
-	<div class="col-md-6 col-sm-12 col-ls-4 text-center">
+	<div class="col-md-12 col-sm-12 col-ls-4 text-center">
 		<aside>
 			<div>
 				<img alt="aside" th:src="@{/images/aside-AS.png}" title="asideSerPaseo">
