@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
 <link rel="stylesheet" th:href="@{/css/estilos.css}" />
 <title>Contactenos</title>
 </head>
@@ -11,6 +12,9 @@
 	<div class="container">
 		<header th:replace="~{/layouts/header :: header}"></header>
 		<nav th:replace="~{/layouts/nav :: nav}"></nav>
+		<div class="row">
+			<div class ="col-md-12 col-sm-12 ">
+
 		<section class="contenido">
 			<h1 class="subtitulo">No dude en comunicarse con nosotros, su consulta no molesta!!!</h1>
 			<fieldset class="formulario">
@@ -47,12 +51,18 @@
 				</form>
 			</fieldset>
 		</section>
-		<aside class="contenido2">
-			<div>
-				<img alt="aside" th:src="@{/images/aside-AS.png}" title="Aside">
+		</div>
+		<div class="col-md-12 col-sm-12  text-center">
+	
+				<aside>
+					<div>
+						<img alt="aside" th:src="@{/images/aside-AS.png}" title="aside" class="img-fluid">
+					</div>
+				</aside>
 			</div>
-		</aside>
+		</div>
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
 	</div>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
