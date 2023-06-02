@@ -4,8 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.unju.fi.model.Sucursal;
+import org.springframework.stereotype.Component;
 
+import ar.edu.unju.fi.model.Sucursal;
+@Component
 public class ListaSucursal {
 	private List<Sucursal> sucursales;
 	/*Crea una lista de objetos de tipo Sucursal.*/

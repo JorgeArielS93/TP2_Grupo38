@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +21,8 @@ import ar.edu.unju.fi.model.Sucursal;
 								 * anotación @GetMapping("/listado"), se mapeará a la URL "/sucursal/listado".
 								 */
 public class SucursalController {
-	ListaSucursal listaSucursales = new ListaSucursal();/*
-														 * Crea un objeto listaSucursales de la clase ListaSucursal con
+	@Autowired
+	ListaSucursal listaSucursales;/* Crea un objeto listaSucursales de la clase ListaSucursal con
 														 * el Constructor por defecto que inicializa la lista sucursales
 														 * como un ArrayList vacío y luego agrega objetos de tipo
 														 * Sucursal
@@ -34,11 +35,12 @@ public class SucursalController {
 		model.addAttribute("activeSucursal", true);
 		return "sucursales";
 	}
-
+	@Autowired
+	private Sucursal sucursal;
 	@GetMapping("/nuevo")
 	public String getNuevaSucursalPage(Model model) {
 		boolean edicion = false;
-		model.addAttribute("sucursal", new Sucursal());
+		model.addAttribute("sucursal",sucursal );
 		model.addAttribute("edicion", edicion);
 		return "nueva_sucursal";
 	}
