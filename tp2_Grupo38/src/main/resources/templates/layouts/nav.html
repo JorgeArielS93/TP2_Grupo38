@@ -10,7 +10,7 @@
 	<!-- <nav class="menuPrincipal" th:fragment="nav">
 		<ul>
 			<li><a th:href="@{/inicio}" th:classappend="${activeInicio} ? 'active'">Inicio</a></li>
-			<li><a href="productos.html">Productos</a></li>
+			<li><a th:href="@{/producto/listarProducto}" th:classappend="${activeProductos} ? 'active'">Productos</a></li>
 			<li><a th:href="@{/consejo/listarConsejo}" th:classappend="${activeConsejos} ? 'active'">Consejos de salud</a></li>
 			<li><a th:href="@{/servicio/listadoPaseador}" th:classappend="${activeServicio}? 'active'">Servicio de paseos</a></li>
 			<li><a th:href="@{/sucursal/listado}" th:classappend="${activeSucursal}? 'active'">Sucursales</a></li>
@@ -32,7 +32,7 @@
 	                        th:classappend="${activeInicio} ? 'text-danger'">Inicio</a>
 	                </li>
 	                <li class="nav-item">
-	                    <a class="nav-link" href="productos.html">Productos</a>
+	                    <a class="nav-link" th:href="@{/producto/listarProducto}" th:classappend="${activeProductos} ? 'active'">Productos</a>
 	                </li>
 	                <li class="nav-item" th:classappend="${activeConsejos} ? 'active'">
 	                    <a class="nav-link" th:href="@{/consejo/listarConsejo}" >Consejos de salud</a>

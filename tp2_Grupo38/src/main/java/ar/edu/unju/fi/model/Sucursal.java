@@ -3,7 +3,8 @@ package ar.edu.unju.fi.model;
 import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
+import org.springframework.stereotype.Component;
+@Component
 public class Sucursal {
 	private String id;
 	private String nombre;

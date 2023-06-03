@@ -1,374 +1,66 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
+<!-- Required meta tags -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="../static/css/estilos.css" />
-<title>Productos</title>
-<style>
 
-</style>
+<!-- Bootstrap CSS and other CSS -->
+<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link th:rel="stylesheet" type="text/css" th:href="@{/css/mis-estilos.css}"/>
+<!--  <link rel="stylesheet" th:href="@{/css/estilos.css}" />  -->
+
+<!-- Title of Sites -->
+<title>Productos</title>
 </head>
 <body>
 	<div class="container">
-		<header>
-			<h1>
-				Mundo Maskota`s ToCoBi <img class="stare" alt="CAT MIRANDO"
-					src="../static/images/header.jpg" title="gato stare">
-			</h1>
-		</header>
-		<nav class="menuPrincipal">
-			<ul>
-				<li><a href="index.html">Inicio</a></li>
-				<li><a class="active" href="productos.html">Productos</a></li>
-				<li><a href="consejosDeSalud.html">Consejos de salud</a></li>
-				<li><a href="servicioDePaseos.html">Servicio de paseos</a></li>
-				<li><a href="sucursales.html">Sucursales</a></li>
-				<li><a href="contactanos.html">Contáctanos</a></li>
-			</ul>
-		</nav>
-		<section class="contenido">
-			<h2> Juguetes y Alimentos para Mascotas </h2>
-			<article>
-				<h3> Lista de Juguetes y Alimentos para Mascotas </h3>
-				<p>La siguiente lista son los productos para mascotas que se han puerto a ventas por el sitio web:</p>
-				<p><small>(* clipckear para mas detalles)</small></p>
-				<ul id="listaProducto">
-					<li class="productos" style="text-decoration: none;">
-						<details>
-							<summary>Juguetes  Cup Cake Cerezas Rascal</summary>
-							<div class="contenidoProducto">
-								<div class="imagen">
-									<img alt="juguete1" src="../static/images/cupcacke-cereza-300x300.jpg" class="prod1" >
-								</div>
-								<div class="info">
-									<h4 class="tituloProducto">Juguetes  Cup Cake Cerezas Rascal</h4>
-									<hr>
-									<p>
-									Los juguetes de vinilo RASCALS se caracterizan por ser de excelente calidad..<br>
-									No son tóxicos. Y son libre de Ftalatos..<br>
-									Son lavables y durables. Ideales para perros chicos o poco mordedores (no te olvides de consultarnos por juguetes para perros grandes, mordedores y/o cachorros).
-									Divertidos diseños..<br>
-									¡Todos nuestros desarrollos son a conciencia, por eso los expertos en conducta canina nos recomiendan!.<br>
-									TIP de Responsabilidad: Supervisa tu mascota mientras juega, aprovecha ese tiempo para formar un vínculo con ella y de paso evitar accidentes!.
-									</p>
-									<h6>Precio :  $1500</h6>
-									<hr>
-									<div class="centro">
-										<button class="button">Comprar</button>
+		<header th:replace="~{/layouts/header :: header}"></header>
+		<nav th:replace="~{/layouts/nav :: nav}"></nav>
+		
+		<div class="row">
+			<div class="col-md-9 col-lg-8 col-sm-12 col-xs-12 ">
+				<section class="">
+					<h2 class="text-justify"> Juguetes y Alimentos para Mascotas </h2>
+					<article>
+						<div  class="row">
+							<p class="col  col-sm-12 col-xs-12 col-lg-9 col-md-9">• La siguiente lista son los productos para mascotas que se han puerto a ventas por el sitio web:</p>
+							<a th:href="@{/producto/nuevoproducto}"  role="button" class="btn btn-success btn-lg botonAgregar ">Agregar Producto</a>
+							
+							<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mb-2" th:each="produ : ${producto}"> 
+								<div class="card h-100 shadow-sm" > 
+									<img  th:src="${produ.imagenProducto}" class="card-img-top" alt="..."> 
+									<div class="card-body"> 
+										<h5 class="card-title text-center" th:text="${produ.codigoProducto}+'- '+${produ.nombreProducto}"></h5> 
+										<div class="clearfix mb-3"> 
+											<span class=" badge rounded-pill bg-primary"  th:text="${produ.categoriaProducto}" ></span> 
+											<span class="float-end price-hp"><del th:text="${produ.precioProducto}">12354.00&euro;</del></span> 
+										</div>
+										<div class="precio text-center" th:text="'$'+${produ.calcularDescuento}">
+										</div>
+										<div class="clearfix mb-3"> 
+											<span class="float-end badge rounded-pill bg-info"  th:text="${produ.mostrarPromo}+' - '+${produ.descuentoProducto}+'% Desc. '" ></span>
+										</div>
+											
+										<a th:href="@{/producto/modificarProducto/}+${produ.codigoProducto}" class="btn btn-primary text-right m-1">Editar</a>
+			                			<a th:href="@{/producto/eliminarProducto/}+${produ.codigoProducto}" class="btn btn-danger text-right  m-1">Borrar</a>
 									</div>
-								</div>	
-							</div>
-						</details>
-					</li>
-					<li class="productos">
-						<details>
-							<summary>Juguetes  Cup Cake Rascal</summary>
-							<div class="contenidoProducto">
-								<div class="imagen">
-									<img alt="juguete1" src="../static/images/CUPCAKE-300x300.jpg" class="prod1" >
 								</div>
-								<div class="info">
-									<h4 class="tituloProducto">Juguetes  Cup Cake Rascal</h4>
-									<hr>
-									<p>
-									Los juguetes de vinilo RASCALS se caracterizan por ser de excelente calidad..<br>
-									No son tóxicos. Y son libre de Ftalatos..<br>
-									Son lavables y durables. Ideales para perros chicos o poco mordedores (no te olvides de consultarnos por juguetes para perros grandes, mordedores y/o cachorros).
-									Divertidos diseños..<br>
-									¡Todos nuestros desarrollos son a conciencia, por eso los expertos en conducta canina nos recomiendan!.<br>
-									TIP de Responsabilidad: Supervisa tu mascota mientras juega, aprovecha ese tiempo para formar un vínculo con ella y de paso evitar accidentes!.
-									</p>
-									<h6>Precio :  $1500</h6>
-									<hr>
-									<div class="centro">
-										<button class="button">Comprar</button>
-									</div>
-								</div>	
 							</div>
-						</details>
-					</li>
-					<li class="productos">
-						<details>
-							<summary>Juguete Dispenser Con Pinchos Rascals</summary>
-							<div class="contenidoProducto">
-								<div class="imagen">
-									<img alt="juguete1" src="../static/images/dispenser-2-300x300.jpg" class="prod1" >
-								</div>
-								<div class="info">
-									<h4 class="tituloProducto">Juguete Dispenser Con Pinchos Rascals</h4>
-									<hr>
-									<p>
-									Los juguetes de vinilo RASCALS se caracterizan por ser de excelente calidad..<br>
-									No son tóxicos. Y son libre de Ftalatos..<br>
-									Son lavables y durables. Ideales para perros chicos o poco mordedores (no te olvides de consultarnos por juguetes para perros grandes, mordedores y/o cachorros).
-									Divertidos diseños..<br>
-									¡Todos nuestros desarrollos son a conciencia, por eso los expertos en conducta canina nos recomiendan!.<br>
-									TIP de Responsabilidad: Supervisa tu mascota mientras juega, aprovecha ese tiempo para formar un vínculo con ella y de paso evitar accidentes!.
-									</p>
-									<h6>Precio :  $1500</h6>
-									<hr>
-									<div class="centro">
-										<button class="button">Comprar</button>
-									</div>
-								</div>	
-							</div>
-						</details>
-					</li>
-					<li class="productos">
-						<details>
-							<summary>Anillo Juguete dispensador de snack- Rascals</summary>
-							<div class="contenidoProducto">
-								<div class="imagen">
-									<img alt="juguete1" src="../static/images/Anillo-300x300.png" class="prod1" >
-								</div>
-								<div class="info">
-									<h4 class="tituloProducto">Anillo Juguete dispensador de snack- Rascals</h4>
-									<hr>
-									<p>
-									Los juguetes de vinilo RASCALS se caracterizan por ser de excelente calidad..<br>
-									- Dientes limpios y encías sanas.<br>
-									- Material muy durable y flexible, por ello evita que se lastimen las encías de tus mascotas.<br>
-									- Los ángulos y formas del juguete sirven para limpiar los dientes y evitar que se acumulen bacterias.<br>
-									- No son tóxicos. Y son libres de Ftalatos.Son lavables y durables. Usa agua caliente y detergente común para higienizarlos.<br>
-									- Apto para perros medianos y de mordida media (no te olvides de consultarnos por juguetes para perros grandes, mordedores y/o cachorros).<br>
-									- Excelente calidad y larga vida útil.Divertidos diseños.<br>
-									- ¡Todos nuestros desarrollos son a conciencia, por eso los expertos en conducta canina nos recomiendan!<br>
-									</p>
-									<h6>Precio :  $1500</h6>
-									<hr>
-									<div class="centro">
-										<button class="button">Comprar</button>
-									</div>
-								</div>	
-							</div>
-						</details>
-					</li>
-					<li class="productos">
-						<details>
-							<summary>Dog Selection Criadores Adulto 21 Kg.</summary>
-							<div class="contenidoProducto">
-								<div class="imagen">
-									<img alt="juguete1" src="../static/images/alimento-perro1-300x300.png" class="prod1" >
-								</div>
-								<div class="info">
-									<h4 class="tituloProducto">Dog Selection Criadores Adulto 21 Kg.</h4>
-									<hr>
-									<p>
-									Desarrolló una nutrición que alimenta a tu mascota, la protege y la estimula en cada etapa de su desarrollo, ayudándolos a alcanzar su máximo potencial.<br> 
-									Cuidando su salud intestinal, promoviendo la óptima digestibilidad, reforzando la respuesta inmune, brindando una alta palatabilidad y alentando el desarrollo neurológico y cognitivo de tu mascota.<br>
-									Beneficios<br>
-									-Alimento balanceado indicado para perros adultos, de todos los tamaño, de mas de un año de vida.<br>
-									-Posee en su composicion manano-oligosacaridos ( MOS) en conjunto con antioxidantes, como la vitamina E.<br>
-									-Alimento que refuerza el sistema inmunitario protegiendolo de agentes infecciosos.
-									</p>
-									<h6>Precio :  $1500</h6>
-									<hr>
-									<div class="centro">
-										<button class="button">Comprar</button>
-									</div>
-								</div>	
-							</div>
-						</details>
-					</li>
-					<li class="productos">
-						<details>
-							<summary>Dog Selection Premium Adulto 21 Kg.</summary>
-							<div class="contenidoProducto">
-								<div class="imagen">
-									<img alt="juguete1" src="../static/images/alimento-perro2-300x300.png" class="prod1" >
-								</div>
-								<div class="info">
-									<h4 class="tituloProducto">Dog Selection Premium Adulto 21 Kg.</h4>
-									<hr>
-									<p>
-									Desarrolla una nutrición que los alimenta, protege y estimula en cada etapa de su desarrollo, ayudándolos a alcanzar su máximo potencial.<br> 
-									<br>
-									Cuida la salud intestinal, promueve la óptima digestibilidad, refuerza la respuesta inmune, brinda alta palatabilidad y alienta el desarrollo neurológico y cognitivo de nuestros perros.<br>
-									<br>
-									Los manano-oligosacáridos (MOS) en conjunto con antioxidantes, como la vitamina E, REFUERZAN el SISTEMA INMUNITARIO protegiéndolo de agentes infecciosos.<br>
-									</p>
-									<h6>Precio :  $1500</h6>
-									<hr>
-									<div class="centro">
-										<button class="button">Comprar</button>
-									</div>
-								</div>	
-							</div>
-						</details>
-					</li>
-					<li class="productos">
-						<details>
-							<summary>Vagoneta Perro Adulto 20Kg </summary>
-							<div class="contenidoProducto">
-								<div class="imagen">
-									<img alt="juguete1" src="../static/images/alimento-perro3-300x300.png" class="prod1" >
-								</div>
-								<div class="info">
-									<h4 class="tituloProducto">Vagoneta Perro Adulto 20Kg </h4>
-									<hr>
-									<p>
-									Su fórmula balanceada en proteínas, vitaminas, minerales y OMEGA 3, 6 y 9 le aporta a tu mascota los nutrientes necesarios para tener una alimentación completa y saludable.<br>
-									Sus exquisitos sabores hacen de Vagoneta el alimento ideal para perros<br>
-									•Alimento para todas las razas y tamaños<br>
-									•21% de proteínas<br>
-									•Sabor Gourmet<br>
-									•Aroma extra que les encanta!!<br>
-									•3500 kcal
-									</p>
-									<h6>Precio :  $1500</h6>
-									<hr>
-									<div class="centro">
-										<button class="button">Comprar</button>
-									</div>
-								</div>	
-							</div>
-						</details>
-					</li>
-					<li class="productos">
-						<details>
-							<summary>Pacha Perro Adulto Mix 22 Kg.</summary>
-							<div class="contenidoProducto">
-								<div class="imagen">
-									<img alt="juguete1" src="../static/images/alimento-perro4-300x300.png" class="prod1" >
-								</div>
-								<div class="info">
-									<h4 class="tituloProducto">Pacha Perro Adulto Mix 22 Kg.</h4>
-									<hr>
-									<p>
-									Pachá Perro Adulto ha sido formulado para cumplir los niveles nutricionales establecidos por AAFCO (Asociación Americana de Agentes de Control de Alimentos) para los alimentos destinados a perros.<br>
-									<br>
-									Tanto en su formulación como en el proceso de elaboración de ha puesto énfasis en cuidar todos los detalles que permitan preservar la excelente palatabilidad, calidad nutricional y salud de su perro.
-									</p>
-									<h6>Precio :  $1500</h6>
-									<hr>
-									<div class="centro">
-										<button class="button">Comprar</button>
-									</div>
-								</div>	
-							</div>
-						</details>
-					</li>
-					<li class="productos">
-						<details>
-							<summary>Cat Selection Adulto 10 Kg.</summary>
-							<div class="contenidoProducto">
-								<div class="imagen">
-									<img alt="juguete1" src="../static/images/alimento-gato1-300x300.png" class="prod1" >
-								</div>
-								<div class="info">
-									<h4 class="tituloProducto">Cat Selection Adulto 10 Kg.</h4>
-									<hr>
-									<p>
-									Está especialmente formulado para lograr niveles bajos de acidez en la orina y evitar la formación de cristales (urolitos) causantes de la Enfermedad de las Vías Urinarias Inferiores Felinas (conocida por sus siglas en inglés FLUTD, Feline Low Urinary Tract Disease).<br>
-
-									Los antioxidantes como la vitamina E (tocoferoles) y el ácido ascórbico (vitamina C), junto con la levadura de cerveza hidrolizada que constituye una importante fuente de β-glucanos y otros componentes funcionales, refuerzan el sistema inmunológico retardando la acción oxidativa y reduciendo los efectos del envejecimiento.<br>
-
-									Las proteínas de alta calidad en conjunto con vitaminas, minerales y ácidos grasos ricos en Omega 3 y Omega 6- aportados principalmente por el aceite de pollo y de pescado-, favorecen el mantenimiento de una piel sana y un pelo fuerte y brillante.
-									</p>
-									<h6>Precio :  $1500</h6>
-									<hr>
-									<div class="centro">
-										<button class="button">Comprar</button>
-									</div>
-								</div>	
-							</div>
-						</details>
-					</li>
-					<li class="productos">
-						<details>
-							<summary>Infinity Gato Adulto 10 Kg.</summary>
-							<div class="contenidoProducto">
-								<div class="imagen">
-									<img alt="juguete1" src="../static/images/alimento-gato2-300x300.png" class="prod1" >
-								</div>
-								<div class="info">
-									<h4 class="tituloProducto">Infinity Gato Adulto 10 Kg.</h4>
-									<hr>
-									<p>
-									Nutrición premium para tu mascota.<br>
-									Equilibrio de Omega 3 y 6. Ácidos grasos.<br>
-									<br>
-									ANÁLISIS NUTRICIONAL:<br>
-									<br>
-									Proteína Bruta Tenor Mínimo 30%, Extracto Etéreo Tenor Mínimo 13%, Fibra Cruda Tenor Máximo 3%, Minerales Totales Tenor Máximo 10%, Humedad Tenor Máximo 12%, Tenor de Calcio Máximo 1,5%, Tenor de Calcio Mínimo 1,2%, Tenor de Fósforo Máximo 1,1%, Tenor de Fósforo Mínimo 0,94%, Energía Metabolizable 3.900 Kcal./Kg. M.S.
-									</p>
-									<h6>Precio :  $1500</h6>
-									<hr>
-									<div class="centro">
-										<button class="button">Comprar</button>
-									</div>
-								</div>	
-							</div>
-						</details>
-					</li>
-					<li class="productos">
-						<details>
-							<summary>Vagoneta Gato Adulto 20Kg.</summary>
-							<div class="contenidoProducto">
-								<div class="imagen">
-									<img alt="juguete1" src="../static/images/alimento-gato3-300x300.png" class="prod1" >
-								</div>
-								<div class="info">
-									<h4 class="tituloProducto">Vagoneta Gato Adulto 20Kg.</h4>
-									<hr>
-									<p>
-									INGREDIENTES:<br>
-									Harina de carne, harina de vísceras de pollo, harina de pescado, grasa de pollo, harina de trigo, arroz, maíz, fibra de maíz, afrechillo de trigo, gluten de maíz, pellet de soja, pulpa de remolacha, levadura de cerveza, extracto de yucca schidigera, harina de germen de maíz desgrasado, aceite de girasol de alto oleico, taurina, metionina, sal, celulosa, inulina, zeolita, manano-oligosacáridos. Saborizante: hidrolizado de vísceras.<br>
-									Acidificante: ácido fosfórico y bisulfato ácido de sodio.<br> 
-									Conservante: sorbato de potasio. Antifúngico: ácido propiónico y propionato de calcio. Antioxidantes: BHT/ BHA/ácido cítrico/EDTA etoxiquina.
-									Núcleo vitamínico-mineral:<br>
-									Vitaminas: A, B1, B2, B6, B12, D3, E, K, ácido fólico, ácido nicotínico, ácido pantoténico, biotina, colina.<br>
-									Minerales: zinc, hierro, cobre, manganeso, yodo, selenio.<br>
-									</p>
-									<h6>Precio :  $1500</h6>
-									<hr>
-									<div class="centro">
-										<button class="button">Comprar</button>
-									</div>
-								</div>	
-							</div>
-						</details>
-					</li>
-					<li class="productos">
-						<details>
-							<summary>Pacha Gato Adulto Mix 10 Kg.</summary>
-							<div class="contenidoProducto">
-								<div class="imagen">
-									<img alt="juguete1" src="../static/images/alimento-gato4-300x300.png" class="prod1" >
-								</div>
-								<div class="info">
-									<h4 class="tituloProducto">Pacha Gato Adulto Mix 10 Kg.</h4>
-									<hr>
-									<p>
-									Formulado para cumplir los niveles nutricionales establecidos por AAFCO (Asociación Americana de Agentes de Control de Alimentos) para los alimentos destinados a gatos.<br>
-									<br>
-									Tanto en su formulación como en el proceso de elaboración de ha puesto énfasis en cuidar todos los detalles que permitan preservar el excelente gusto, calidad nutricional y salud para su gato.<br>
-									<br>
-									Con harina de carne, pollo y pescado.
-									</p>
-									<h6>Precio :  $1500</h6>
-									<hr>
-									<div class="centro">
-										<button class="button">Comprar</button>
-									</div>
-								</div>	
-							</div>
-						</details>
-					</li>
-				</ul>
-			</article>
-		</section>
-		<aside class="contenido2">
-			<div>
-				<img alt="aside" src="../static/images/aside-AS.png" title="aside">
+							
+						</div>
+					</article>
+				</section>		
 			</div>
-		</aside>
-		<footer>
-			<p>Copyright 2023 - Nombre del sitio - Diseñado por Grupo 38 –
-				Jujuy – República Argentina</p>
-		</footer>
-	</div>
+			<div class="col-md-3 col-lg-4 col-sm-12 col-xs-12">
+				<aside>
+					<img alt="aside" th:src="@{/images/aside-AS.png}" title="aside" class="img-fluid">
+				</aside>
+			</div>
+		</div>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>		
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>	
 </body>
 </html>
