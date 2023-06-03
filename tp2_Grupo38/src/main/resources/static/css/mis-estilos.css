@@ -142,4 +142,65 @@ footer p {
 }
 
 				/*********************** Pagina Servicio ***********************/
+				
+				
+/***************************************************************************************************/
+				/*********************** Pagina ConsejoDeSalud ***********************/
+/***************************************************************************************************/	
+.btn-agregarConsejo{
+	background-color: #4CAF50; /* Green */
+	margin-left:5%;
+	margin-right: 5%;
+}			
+.sombra:hover{
+        box-shadow: 0 0 45px gray;
+}
+.fotela1consejo {
+	height:100%;
+	width:110%;
+	padding: 3px;
+	background-color: rgba(0, 0, 0, 0);
+}	    				
+
+
+/*************************************** Nuevo ConsejoDeSalud **************************************/
+
+.formularioConsejo .form-group{
+	margin: 5%;
+}
+.formularioConsejo legend {
+  background-color: gray;
+  color: white;
+  padding: 5px 10px;
+}
+
+/***************************************************************************************************/
+				/***********************     Pagina Producto     ***********************/
+/***************************************************************************************************/
+
+.cardProducto{
+	margin: 1%;
+}
+
+.cardProducto img{
+	height:90% ;
+	width: 70%;
+	
+}
+
+.precio{
+	letter-spacing: 2px;
+	color: #ff4338;
+	font-size: 50px;
+	min-height: 1em;
+	padding-bottom: 10px;
+	margin-top: -25px;
+}
+
+.botonAgregar{
+	margin-left:1rem ;
+	margin-right:1rem ;
+	margin-bottom: 2rem;
+}
+
 
