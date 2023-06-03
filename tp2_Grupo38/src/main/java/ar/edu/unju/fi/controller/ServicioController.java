@@ -3,6 +3,7 @@ package ar.edu.unju.fi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,12 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.listas.ListaServicio;
 import ar.edu.unju.fi.model.Servicio;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/servicio")
 	public class ServicioController{
 	@Autowired
-		ListaServicio listaServicio; /* Inyecta el obejo listaservicio y se pone en el contenedor
+		private ListaServicio listaServicio; /* Inyecta el obejo listaservicio y se pone en el contenedor
 		 													y el objeto ya esta creado en memoria listo para su uso, 
 		 													con todos sus atributos y metodos*/
 		
@@ -41,8 +43,14 @@ import ar.edu.unju.fi.model.Servicio;
 		}
 		
 		@PostMapping("/guardarServicio")
-		public ModelAndView getGuardarServicioPage(@ModelAttribute("servicio") Servicio servicio) {
+		public ModelAndView getGuardarServicioPage(@Valid @ModelAttribute("servicio") Servicio servicio,BindingResult result) {
 		    ModelAndView modelView = new ModelAndView("servicio_de_paseos");
+		    if(result.hasErrors())
+		    {
+		    	modelView.setViewName("nuevo_servicio");
+		    	modelView.addObject("servicio",servicio);
+		    	return modelView;
+		    }
 		    servicio.setId("PAS-" + Servicio.getNextId());
 		    listaServicio.getServicio().add(servicio);
 		    modelView.addObject("servicios",listaServicio.getServicio());

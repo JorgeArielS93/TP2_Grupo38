@@ -22,7 +22,7 @@
 					<strong>Ingrese Datos</strong>
 				</legend>
 				<form th:action="${edicion}?@{/servicio/modificarPaseador}:@{/servicio/guardarServicio}"
-				 th:object="${servicio}"  method="post">
+				 th:object="${servicio}"  method="post" novalidate>
 				 <div class="mb-3">
 				 	<label for="id" class="d-block">ID:</label>
 					<input type="text" id="id" name="paseador_id" th:field="*{id}" 
@@ -32,31 +32,37 @@
 				 	<label for="dni" class="d-block">DNI:</label>
 					<input type="text" id="dni" name="paseador_dni" th:field="*{dni}" 
 					placeholder="Ingrese DNI del Paseador" required class="w-100">
+					<div class="text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
 				 </div>
 				 <div class="mb-3">
 				 	<label for="nombre" class="d-block">Nombre:</label>
 					<input type="text" id="nombre" name="paseador_nombre" th:field="*{nombre}" 
 					placeholder="Ingrese nombre del Paseador" required class="w-100">
+					<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 				 </div>
 				 <div class="mb-3">
 				 	<label for="edad" class="d-block">Edad:</label>
 					<input type="text" id="edad" name="paseador_edad" th:field="*{edad}" 
 					placeholder="Ingrese Edad" required class="w-100">
+					<div class="text-danger" th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></div>
 				 </div>
 				 <div class="mb-3">
 				 	<label for="domicilio" class="d-block">Domicilio:</label>
 					<input type="text" id="domicilio" name="paseador_direccion" th:field="*{domicilio}" 
 					placeholder="Ingrese Domicilio" required class="w-100">
+					<div class="text-danger" th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>
 				 </div>
 				 <div class="mb-3">
 					 <label for="telefono" class="d-block">Telefono:</label>
 					<input type="text" id="telefono" name="paseador_telefono" th:field="*{telefono}" 
 					placeholder="Ingrese N° de Telefono" required class="w-100">
+					<div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
 				 </div>
 				 <div class="mb-3">
 				 	 <label for="telefono" class="d-block">Honorarios:</label>
 					<input type="text" id="honorarios" name="paseador_honorarios" th:field="*{honorarios}" 
 					placeholder="Ingrese Honorarios ($)" required class="w-100">
+					<div class="text-danger" th:if="${#fields.hasErrors('honorarios')}" th:errors="*{honorarios}"></div>
 				 </div>
 				 <div>
 					 <input type="submit" th:value="${edicion}?'Modificar':'Guardar' " class="btn botonRojo w-100">
