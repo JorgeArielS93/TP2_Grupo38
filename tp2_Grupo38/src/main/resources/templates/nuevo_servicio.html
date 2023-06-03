@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
-<link rel="stylesheet" th:href="@{/css/estilos.css}" />
+<link rel="stylesheet" th:href="@{/css/mis-estilos.css}" />
 <title th:text="${edicion}? 'Modificar datos del Paseador':'Nuevo Paseador'"></title>
 </head>
 <body>
@@ -13,38 +13,62 @@
 		<header th:replace="~{/layouts/header :: header}"></header>
 		<nav th:replace="~{/layouts/nav :: nav}"></nav>
 		<div class="row">
-		<div class="col-md-8 col-sm-12">
-		<section class="contenido">
-		<a th:href="@{/servicio/listadoPaseador}" class="buttonAdd botonRojo">Regresar</a>
-				<h3 th:text="${edicion}? 'Modificar datos del Paseador':'Nuevo Paseador'"></h3>
-			<fieldset class="formulario">
+		<div class="col-md-6 col-sm-12">
+			<section class="contenido">
+					<a th:href="@{/servicio/listadoPaseador}" class="buttonAdd botonRojo">Regresar</a>
+					<h3 th:text="${edicion}? 'Modificar datos del Paseador':'Nuevo Paseador'" class="text-center"></h3>
+				<fieldset class="formulario border border-2 border-danger m-3 p-3">
 				<legend>
 					<strong>Ingrese Datos</strong>
 				</legend>
-				<form th:action="${edicion}?@{/servicio/modificarPaseador}:@{/servicio/guardarServicio}" th:object="${servicio}"  method="post">
-					<label for="id">ID:</label>
-					<input type="text" id="id" name="paseador_id" th:field="*{id}" placeholder="ASIGNACION AUTOMATICA" required readonly><br><br>
-					<label for="dni">DNI:</label>
-					<input type="text" id="dni" name="paseador_dni" th:field="*{dni}" placeholder="Ingrese DNI del Paseador" required><br><br>
-					<label for="nombre">Nombre:</label>
-					<input type="text" id="nombre" name="paseador_nombre" th:field="*{nombre}" placeholder="Ingrese nombre del Paseador" required><br><br>
-					<label for="edad">Edad:</label>
-					<input type="text" id="edad" name="paseador_edad" th:field="*{edad}" placeholder="Ingrese Edad" required><br><br>
-					<label for="domicilio">Domicilio:</label>
-					<input type="text" id="domicilio" name="paseador_direccion" th:field="*{domicilio}" placeholder="Ingrese Domicilio" required><br> <br>
-					<label for="telefono">Telefono:</label>
-					<input type="text" id="telefono" name="paseador_telefono" th:field="*{telefono}" placeholder="Ingrese N° de Telefono" required><br><br>
-					<label for="telefono">Honorarios:</label>
-					<input type="text" id="honorarios" name="paseador_honorarios" th:field="*{honorarios}" placeholder="Ingrese Honorarios ($)" required><br><br>
-					<input type="submit" th:value="${edicion}?'Modificar':'Guardar'">
+				<form th:action="${edicion}?@{/servicio/modificarPaseador}:@{/servicio/guardarServicio}"
+				 th:object="${servicio}"  method="post">
+				 <div class="mb-3">
+				 	<label for="id" class="d-block">ID:</label>
+					<input type="text" id="id" name="paseador_id" th:field="*{id}" 
+					placeholder="ASIGNACION AUTOMATICA" required readonly class="w-100">
+				 </div>
+				 <div class="mb-3">
+				 	<label for="dni" class="d-block">DNI:</label>
+					<input type="text" id="dni" name="paseador_dni" th:field="*{dni}" 
+					placeholder="Ingrese DNI del Paseador" required class="w-100">
+				 </div>
+				 <div class="mb-3">
+				 	<label for="nombre" class="d-block">Nombre:</label>
+					<input type="text" id="nombre" name="paseador_nombre" th:field="*{nombre}" 
+					placeholder="Ingrese nombre del Paseador" required class="w-100">
+				 </div>
+				 <div class="mb-3">
+				 	<label for="edad" class="d-block">Edad:</label>
+					<input type="text" id="edad" name="paseador_edad" th:field="*{edad}" 
+					placeholder="Ingrese Edad" required class="w-100">
+				 </div>
+				 <div class="mb-3">
+				 	<label for="domicilio" class="d-block">Domicilio:</label>
+					<input type="text" id="domicilio" name="paseador_direccion" th:field="*{domicilio}" 
+					placeholder="Ingrese Domicilio" required class="w-100">
+				 </div>
+				 <div class="mb-3">
+					 <label for="telefono" class="d-block">Telefono:</label>
+					<input type="text" id="telefono" name="paseador_telefono" th:field="*{telefono}" 
+					placeholder="Ingrese N° de Telefono" required class="w-100">
+				 </div>
+				 <div class="mb-3">
+				 	 <label for="telefono" class="d-block">Honorarios:</label>
+					<input type="text" id="honorarios" name="paseador_honorarios" th:field="*{honorarios}" 
+					placeholder="Ingrese Honorarios ($)" required class="w-100">
+				 </div>
+				 <div>
+					 <input type="submit" th:value="${edicion}?'Modificar':'Guardar' " class="btn botonRojo w-100">
+				 </div>			
 				</form>
 			</fieldset>
 		</section>
 		</div>
-		<div class="col-md-4 col-sm-12  text-center">
+		<div class="col-md-6 col-sm-12 text-center">
 		<aside>
 			<div>
-				<img alt="aside" th:src="@{/images/aside-AS.png}" title="Aside">
+				<img alt="aside" th:src="@{/images/aside-AS.png}" title="Aside" class="img-fluid">
 			</div>
 		</aside>
 		</div>
