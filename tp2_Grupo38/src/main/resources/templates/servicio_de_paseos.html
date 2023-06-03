@@ -5,86 +5,96 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
-<link rel="stylesheet" th:href="@{/css/estilos.css}" />
+<link th:rel="stylesheet" type="text/css" th:href="@{/css/mis-estilos.css}" />
 <title>Servicios de Paseo</title>
 </head>
 <body>
 	<div class="container">
-	<header th:replace="~{/layouts/header :: header}"></header>
-	<nav th:replace="~{/layouts/nav :: nav}"></nav>
+		<header th:replace="~{/layouts/header :: header}"></header>
+		<nav th:replace="~{/layouts/nav :: nav}"></nav>
 	<div class="row">
-	<div class="col-md-12 col-sm-12 col-ls-8">
-	<section>
-		<table class="tablaServicioPaseos">
-			<thead>
-				<tr>
-					<th>Día</th>
-					<th>Lunes</th>
-					<th>Martes</th>
-					<th>Miércoles</th>
-					<th>Jueves</th>
-					<th>Viernes</th>
-					<th>Sábado</th>
-				</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th>Horario</th>
-						<td>9 a 12 - 16 a 18</td>
-						<td>9 a 12 - 16 a 18</td>
-						<td>9 a 12 - 16 a 18</td>
-						<td>9 a 12 - 16 a 18</td>
-						<td>9 a 12 - 16 a 18</td>
-						<td>9 a 12 - 16 a 18</td>
-					</tr>
-					<tr>
-						<th>Paseador</th>
-						<td>Juan Perez</td>
-						<td>Lucas Diaz</td>
-						<td>Juan Perez</td>
-						<td>Maria Gomez</td>
-						<td>Lucas Diaz</td>
-						<td>Roberto Vazquez</td>
-					</tr>
-				</tbody>
-		</table>
-		<div>
-		<a th:href="@{/servicio/nuevoPaseador}" class="buttonAdd botonRojo">Agregar Paseador</a>
-		</div>
-		 			<h3 class="tituloPaseador">PASEADORES</h3>			
-			<table class="tablaPaseador">
-		 				<tr>		
-		 					<th >DNI</th>	
-		 					<th>NOMBRE</th>
-		 					<th>EDAD</th>
-		 					<th>DOMICILIO</th>
-		 					<th>TELEFONO</th>
-		 					<th>HONORARIOS</th>
-		 					<th>ACCIONES</th>
-		 				</tr>
-		 				<tr th:each="servi: ${servicios}">
-		 					<td th:text="${servi.dni}"></td>
-		 					<td th:text="${servi.nombre}"></td>
-		 					<td th:text="${servi.edad}"></td>
-		 					<td th:text="${servi.domicilio}"></td>
-		 					<td th:text="${servi.telefono}"></td>
-		 					<td th:text="${servi.honorarios}"></td>
-		 					<td>
-		 				     	<a th:href="@{/servicio/modificarPaseador/}+${servi.id}" class="botonAccServ botonRojo">Editar</a>
-				      	        <a th:href="@{/servicio/eliminarPaseador/}+${servi.id}" class="botonAccServ botonRojo">Borrar</a>
-		 					</td>
-		 				</tr>
-		 			</table>
-		 	 				
-	</section>
-	</div>
-	<div class="col-md-12 col-sm-12 col-ls-4 text-center">
-		<aside>
-			<div>
-				<img alt="aside" th:src="@{/images/aside-AS.png}" title="asideSerPaseo">
+		<div class="col-md-8 col-sm-12">
+			<section>
+			<div class="table-responsive">
+			<table class="table table-bordered table-hover table-sm">
+					<thead>
+						<tr>
+							<th>Día</th>
+							<th>Lunes</th>
+							<th>Martes</th>
+							<th>Miércoles</th>
+							<th>Jueves</th>
+							<th>Viernes</th>
+							<th>Sábado</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>Horario</th>
+							<td>9 a 12-16 a 18</td>
+							<td>9 a 12-16 a 18</td>
+							<td>9 a 12-16 a 18</td>
+							<td>9 a 12-16 a 18</td>
+							<td>9 a 12-16 a 18</td>
+							<td>9 a 12-16 a 18</td>
+						</tr>
+						<tr>
+							<th>Paseador</th>
+							<td>Juan Perez</td>
+							<td>Lucas Diaz</td>
+							<td>Juan Perez</td>
+							<td>Maria Gomez</td>
+							<td>Lucas Diaz</td>
+							<td>Roberto Vazquez</td>
+						</tr>
+					</tbody>
+				</table>	
 			</div>
-		</aside>
-	</div>
+				
+		<div>
+			<a th:href="@{/servicio/nuevoPaseador}" class="buttonAdd botonRojo">Agregar Paseador</a>	
+		</div>
+		  <div class="table-responsive">
+		  <table class="table table-bordered table-hover caption-top text-center">
+					<caption>PASEADORES</caption>
+					<thead>
+		 					<tr>		
+		 						<th >DNI</th>	
+		 						<th>NOMBRE</th>
+		 						<th>EDAD</th>
+		 						<th>DOMICILIO</th>
+		 						<th>TELEFONO</th>
+		 						<th>HONORARIOS</th>
+		 						<th>ACCIONES</th>
+		 					</tr>
+		 			</thead>
+		 			<tbody>
+		 					<tr th:each="servi: ${servicios}">
+		 						<td th:text="${servi.dni}"></td>
+		 						<td th:text="${servi.nombre}"></td>
+		 						<td th:text="${servi.edad}"></td>
+		 						<td th:text="${servi.domicilio}"></td>
+		 						<td th:text="${servi.telefono}"></td>
+		 						<td th:text="${servi.honorarios}"></td>
+		 						<td>
+		 				     		<a th:href="@{/servicio/modificarPaseador/}+${servi.id}" 
+		 				     		class="botonAccServ botonRojo">Editar</a>
+				      	     	   <a th:href="@{/servicio/eliminarPaseador/}+${servi.id}" 
+				      	     	   	class="botonAccServ botonRojo">Borrar</a>
+		 						</td>
+		 					</tr>
+		 			</tbody>
+		 			</table>
+		 		 </div>					 				
+			</section>
+		</div>
+		<div class="col-md-4 col-sm-12">
+			<aside>
+				<div>
+					<img alt="aside" th:src="@{/images/aside-AS.png}" title="asideServicio" class="img-fluid">
+				</div>
+			</aside>
+		</div>
 	</div>
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
 	</div>

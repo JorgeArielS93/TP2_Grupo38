@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +16,13 @@ import ar.edu.unju.fi.model.Servicio;
 @Controller
 @RequestMapping("/servicio")
 	public class ServicioController{
-		ListaServicio listaServicio=new ListaServicio(); /* se contruye obejto con contructor por defecto*/
+	@Autowired
+		ListaServicio listaServicio; /* Inyecta el obejo listaservicio y se pone en el contenedor
+		 													y el objeto ya esta creado en memoria listo para su uso, 
+		 													con todos sus atributos y metodos*/
+		
+		@Autowired
+		private Servicio servicio;
 		
 		@GetMapping("/listadoPaseador")
 		public String getServicioDePaseos(Model model) {
@@ -27,7 +34,7 @@ import ar.edu.unju.fi.model.Servicio;
 		@GetMapping("/nuevoPaseador")
 		public String getNuevoServicioPage(Model model) {
 			boolean edicion=false;
-			model.addAttribute("servicio",new Servicio());
+			model.addAttribute("servicio",servicio);
 			model.addAttribute("edicion",edicion);
 			return "nuevo_servicio";
 			

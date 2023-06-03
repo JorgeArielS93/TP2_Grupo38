@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
-<link rel="stylesheet" th:href="@{/css/estilos.css}" />
+<link th:rel="stylesheet" type="text/css" th:href="@{/css/mis-estilos.css}" />
 <title>Contactenos</title>
 </head>
 <body>
@@ -13,46 +13,52 @@
 		<header th:replace="~{/layouts/header :: header}"></header>
 		<nav th:replace="~{/layouts/nav :: nav}"></nav>
 		<div class="row">
-			<div class ="col-md-12 col-sm-12 ">
-
-		<section class="contenido">
-			<h1 class="subtitulo">No dude en comunicarse con nosotros, su consulta no molesta!!!</h1>
-			<fieldset class="formulario">
-				<legend>
-					<strong>Datos de Contacto</strong>
-				</legend>
-				<form action="/action_page.php" id="form1" method="get">
-					<p>3915 Av. General Belgrano, 388-4237700</p>
-					<p>Lunes a Viernes: 9:00 am a 8:00 pm.</p>
-					<p>Sabado a Domingo 9:00 am a 12:30 pm.</p>
-					<p>
-						<a href="#">contactos@yopmail.com.ar</a>
-					</p>
-					<ul>
-						<li><a href="#">Facebook</a></li>
-						<li><a href="#">Instagram</a></li>
-						<li><a href="#">Twitter</a></li>
-					</ul>
-					<hr>
-					<label for="fname">Nombre:</label> <input type="text" id="fname"
-						name="fname" placeholder="Ingrese su nombre" required><br><br>
-						 
-					<label for="email">Email:</label> <input type="email"
-						id="email" name="email" placeholder="Ingrese un email válido"
-						required><br> <br>
-						
-					<label for="ciudad">Ciudad:</label><input type="text" id="ciudad" 
-					name="ciudad" placeholder="Ingrese su ciudad" required><br> <br>
-					
-					<label for="mensaje">Mensaje:</label>
-					<textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea>
-					<br> <br>
-					<input type="submit" value="Enviar">
+			<div class ="col-md-6 col-sm-12">
+				<section class="contenido">
+					<h1 class="subtitulo">No dude en comunicarse con nosotros, su consulta no molesta!!!</h1>
+					<fieldset class="formulario border border-2 border-danger m-3 p-3">
+						<legend>
+							<strong>Datos de Contacto</strong>
+						</legend>
+					<form action="/action_page.php" id="form1" method="get">
+						<p>3915 Av. General Belgrano, 388-4237700</p>
+						<p>Lunes a Viernes: 9:00 am a 8:00 pm.</p>
+						<p>Sabado a Domingo 9:00 am a 12:30 pm.</p>
+						<p>
+							<a href="#">contactos@yopmail.com.ar</a>
+						</p>
+						<ul>
+								<li><a href="#">Facebook</a></li>
+								<li><a href="#">Instagram</a></li>
+							<li><a href="#">Twitter</a></li>
+						</ul>
+							<div class="mb-3">
+								<label for="fname" class="d-block">Nombre:</label>
+								<input type="text" id="fname"
+								name="fname" placeholder="Ingrese su nombre" required class="w-100">
+							</div>
+							<div class="mb-3">
+								<label for="email" class="d-block">Email:</label>
+								<input type="email"
+								id="email" name="email" placeholder="Ingrese un email válido"
+								required class="w-100">
+							</div>
+							<div class="mb-3">
+								<label for="ciudad" class="d-block">Ciudad:</label>
+								<input type="text" id="ciudad" 
+								name="ciudad" placeholder="Ingrese su ciudad" required class="w-100">
+							</div>
+							<div class="mb-3">
+								<label for="mensaje" class="d-block">Mensaje:</label>
+								<textarea id="mensaje" name="mensaje" rows="4" cols="50" required class="w-100"></textarea>
+							</div>
+							
+						<input type="submit" value="Enviar" class="btn botonRojo w-100">
 				</form>
 			</fieldset>
 		</section>
 		</div>
-		<div class="col-md-12 col-sm-12  text-center">
+		<div class="col-md-6 col-sm-12  text-center">
 	
 				<aside>
 					<div>
