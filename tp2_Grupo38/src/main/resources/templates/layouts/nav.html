@@ -37,15 +37,17 @@
 	                <li class="nav-item" th:classappend="${activeConsejos} ? 'active'">
 	                    <a class="nav-link" th:href="@{/consejo/listarConsejo}" >Consejos de salud</a>
 	                </li>
-	                <li class="nav-item" th:classappend="${activeServicio} ? 'active'">
-	                    <a class="nav-link" th:href="@{/servicio/listadoPaseador}">Servicio de paseos</a>
+	                <li class="nav-item">
+	                    <a class="nav-link" th:href="@{/servicio/listadoPaseador}"
+	                     th:classappend="${activeServicio} ? 'text-danger'">Servicio de paseos</a>
 	                </li>
 	                <li class="nav-item">
 	                    <a class="nav-link" th:href="@{/sucursal/listado}"
 	                        th:classappend="${activeSucursal} ? 'text-danger'">Sucursales</a>
 	                </li>
-	                <li class="nav-item" th:classappend="${activeContacto} ? 'active'">
-	                    <a class="nav-link" th:href="@{/contacto}">Contáctanos</a>
+	                <li class="nav-item">
+	                    <a class="nav-link" th:href="@{/contacto}"
+	                     th:classappend="${activeContacto} ? 'text-danger'">Contáctanos</a>
 	                </li>
 	            </ul>
 	        </div>
