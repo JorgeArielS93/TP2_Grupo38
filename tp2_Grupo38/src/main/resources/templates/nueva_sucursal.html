@@ -10,82 +10,68 @@
 </head>
 <body>
 	<div class="container">
-		<header th:replace="~{/layouts/header :: header}"></header>
-		<nav th:replace="~{/layouts/nav :: nav}"></nav>
-		<div class="row ">
-			<div class="col-md-6 col-sm-12 text-justify p-2">
+	<header th:replace="~{/layouts/header :: header}"></header>
+	<nav th:replace="~{/layouts/nav :: nav}"></nav>
+	<div class="row">
+		<div class="col-lg-6 col-md-12 text-justify p-2">
 			<section class="contenido">
-			<a th:href="@{/sucursal/listado}" class="buttonAdd botonRojo mx-3">Regresar</a>
-			<h2 class="subtitulo" th:text="${edicion}?'Editar Sucursal':'Nueva Sucursal'"></h2>
-			<fieldset class="formulario border border-2 border-danger p-2 my-1 mx-3">
-				<legend>
-					<strong>Ingrese Datos</strong>
-				</legend>
-				<form
-					th:action="${edicion}?@{/sucursal/editar}:@{/sucursal/guardar}"
-					th:object="${sucursal}" method="post">
-					<!-- Si omites un atributo en el formulario y no lo envías al servidor,
-					el servidor no podrá realizar la operación de guardar los cambios correctamente
-					debido a la falta de información necesaria para identificar y actualizar el registro
-					correspondiente. Asegúrate de incluir todos los campos necesarios en el formulario y
-					enviarlos al servidor para lograr el comportamiento deseado. 
-					Si algún campo no es editable y no deseas mostrarlo en el formulario, puedes utilizar 
-					un campo oculto para enviar su valor al servidor sin mostrarlo al usuario.-->
-
-					<input type="hidden" th:field="*{id}">
-					
-					<div class="mb-3">
-						<label for="nombre" class="form-label">Nombre:</label> <input
-							type="text" id="nombre" name="sucursal_nombre"
-							th:field="*{nombre}" class="form-control"
-							placeholder="Ingrese nombre de Sucursal" required>
-					</div>
-					<div class="mb-3">
-						<label for="direccion" class="form-label">Direccion:</label> <input
-							type="text" id="direccion" name="sucursal_direccion"
-							th:field="*{direccion}" class="form-control"
-							placeholder="Ingrese la Direccion" required>
-					</div>
-					<div class="mb-3">
-						<label for="provincia" class="form-label">Provincia:</label> <select
-							id="provincia" name="sucursal_provincia" th:field="*{provincia}"
-							class="form-select">
-							<option value="JUJUY">Jujuy</option>
-							<option value="SALTA">Salta</option>
-						</select>
-					</div>
-					<div class="mb-3">
-						<label for="fecha" class="form-label">Fecha de Funcion:</label> <input
-							type="date" id="fecha" name="sucursal_fecha"
-							th:field="*{fechaInicio}" class="form-control" required>
-					</div>
-					<div class="mb-3">
-						<label for="email" class="form-label">Email:</label> <input
-							type="email" id="email" name="sucursal_email" th:field="*{email}"
-							class="form-control" placeholder="Ingrese un email" required>
-					</div>
-					<div class="mb-3">
-						<label for="telefono" class="form-label">Telefono:</label> <input
-							type="text" id="telefono" name="sucursal_telefono"
-							th:field="*{telefono}" class="form-control"
-							placeholder="Ingrese el num de Telefono" required>
-					</div>
-					<input type="submit" th:value="${edicion}?'Modificar':'Guardar'"
-						class="btn botonRojo">
-				</form>
-			</fieldset>
-		</section>
+				<a th:href="@{/sucursal/listado}" class="buttonAdd botonRojo mx-3">Regresar</a>
+				<h2 class="subtitulo" th:text="${edicion}?'Editar Sucursal':'Nueva Sucursal'"></h2>
+				<fieldset class="formulario border border-2 border-danger p-2 my-1 mx-3">
+					<legend><strong>Ingrese Datos</strong></legend>
+					<form th:action="${edicion}?@{/sucursal/editar}:@{/sucursal/guardar}"
+						th:object="${sucursal}" method="post">
+						<input type="hidden" th:field="*{id}">
+						<div class="mb-3">
+							<label for="nombre" class="form-label">Nombre:</label>
+							<input type="text" id="nombre" name="sucursal_nombre" th:field="*{nombre}"
+								class="form-control" placeholder="Ingrese nombre de Sucursal" required>
+						</div>
+						<div class="mb-3">
+							<label for="direccion" class="form-label">Direccion:</label>
+							<input type="text" id="direccion" name="sucursal_direccion"
+								th:field="*{direccion}" class="form-control" placeholder="Ingrese la Direccion"
+								required>
+						</div>
+						<div class="mb-3">
+							<label for="provincia" class="form-label">Provincia:</label>
+							<select id="provincia" name="sucursal_provincia" th:field="*{provincia}"
+								class="form-select">
+								<option value="JUJUY">Jujuy</option>
+								<option value="SALTA">Salta</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label for="fecha" class="form-label">Fecha de Funcion:</label>
+							<input type="date" id="fecha" name="sucursal_fecha" th:field="*{fechaInicio}"
+								class="form-control" required>
+						</div>
+						<div class="mb-3">
+							<label for="email" class="form-label">Email:</label>
+							<input type="email" id="email" name="sucursal_email" th:field="*{email}"
+								class="form-control" placeholder="Ingrese un email" required>
+						</div>
+						<div class="mb-3">
+							<label for="telefono" class="form-label">Telefono:</label>
+							<input type="text" id="telefono" name="sucursal_telefono" th:field="*{telefono}"
+								class="form-control" placeholder="Ingrese el num de Telefono" required>
+						</div>
+						<input type="submit" th:value="${edicion}?'Modificar':'Guardar'" class="btn botonRojo">
+					</form>
+				</fieldset>
+			</section>
 		</div>
-		<div class="col-md-6 col-sm-12  text-center">
-				<aside>
-					<div>
-						<img alt="aside" th:src="@{/images/aside-AS.png}" title="aside" class="img-fluid">
-					</div>
-				</aside>
-			</div>
+		<div class="col-lg-6 col-md-12 text-center">
+			<aside>
+				<div>
+					<img alt="aside" th:src="@{/images/aside-AS.png}" title="aside" class="img-fluid">
+				</div>
+			</aside>
 		</div>
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
 	</div>
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+</div>
+
 	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
