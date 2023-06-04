@@ -60,23 +60,6 @@ public class ConsejoController {
 		return "nuevo_consejo";
 	}
 	
-//	@GetMapping("/eliminarconsejo/{numeroConsejo}")
-//	public String eliminarConsejoPage(Model model , @PathVariable(value="numeroConsejo")int numeroConsejo) {
-//		ListaConsejo listaAux = new ListaConsejo();
-//		for (Consejo cons : listaConsejo.getConsejo()) {
-//			//if (cons.getNumConsejo()== numeroConsejo) {
-//				//listaConsejo.getConsejo().remove(cons.getNumConsejo());
-//			//}
-//			if(cons.getNumConsejo()!= numeroConsejo) {
-//				listaAux.getConsejo().add(cons);
-//			}
-//			//break;
-//		}
-//		listaConsejo=listaAux;
-//		return "redirect:/consejo/listarConsejo";
-//	
-//	}
-	
 	@GetMapping("/eliminarconsejo/{numeroConsejo}")
 	public String eliminarConsejoPage(Model model, @PathVariable(value="numeroConsejo") int numeroConsejo) {
 	    for (Consejo cons : listaConsejo.getConsejo()) {
@@ -89,22 +72,22 @@ public class ConsejoController {
 	}
 	
 	@PostMapping("/editar")
-	public String modificarSucursal(@ModelAttribute("nsucursal") Consejo consejo) {
+	public String modificarSucursal(@ModelAttribute("consej") Consejo consejo) {
+		
+		int consej =consejo.getNumConsejo();
 	    for (Consejo cons : listaConsejo.getConsejo()) {
-	        if (cons.getNumConsejo()== consejo.getNumConsejo()) {
+	        if (cons.getNumConsejo() == consej) {
+	        	
 	        	cons.setNumConsejo(consejo.getNumConsejo());
 	        	cons.setTitulo(consejo.getTitulo());
 	        	cons.setParrafo(consejo.getParrafo());
 	        	cons.setImagen(consejo.getImagen());
-	        	//cons=consejo;
-	        	//listaConsejo.getConsejo().add(cons);
-	        	//listaConsejo.getConsejo().remove(cons);
-	        	//listaConsejo.getConsejo().add(new Consejo(consejo.getNumConsejo(),consejo.getTitulo(),consejo.getParrafo(),consejo.getImagen()));
 	        	
 	        	break; // Agregar un break después de realizar las modificaciones
 	        }
 	    }
 
 	    return "redirect:/consejo/listarConsejo";
+	    
 	}
 }
