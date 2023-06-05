@@ -14,10 +14,10 @@ public class ListaServicio {
 
 		servicios = new ArrayList<Servicio>();
 		
-		servicios.add(new Servicio("43654221","Maria Gomez","22" ,"B° Alto Comedero", "3886589084", "$500"));
-		servicios.add(new Servicio("35621321","Roverto Vazquez", "26", "B° Chijra", "3884179993", "$700"));
-		servicios.add(new Servicio("39156121","Juan Perez", "25", "B°Mariano Moreno", "3885044544", "$600"));
-		servicios.add(new Servicio("36651615","Lucas Diaz", "28", "B° Huico", "3885765464", "$1200"));
+		servicios.add(new Servicio("43654221","Maria Gomez","22" ,"B° Alto Comedero", "3886589084", "500"));
+		servicios.add(new Servicio("35621321","Roverto Vazquez", "26", "B° Chijra", "3884179993", "700"));
+		servicios.add(new Servicio("39156121","Juan Perez", "25", "B°Mariano Moreno", "3885044544", "600"));
+		servicios.add(new Servicio("36651615","Lucas Diaz", "28", "B° Huico", "3885765464", "1200"));
 
 	}
 	
