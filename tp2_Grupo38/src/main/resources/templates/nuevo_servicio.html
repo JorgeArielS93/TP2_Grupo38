@@ -59,7 +59,7 @@
 					<div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
 				 </div>
 				 <div class="mb-3">
-				 	 <label for="telefono" class="d-block">Honorarios:</label>
+				 	 <label for="telefono" class="d-block">Honorarios ($):</label>
 					<input type="text" id="honorarios" name="paseador_honorarios" th:field="*{honorarios}" 
 					placeholder="Ingrese Honorarios ($)" required class="w-100">
 					<div class="text-danger" th:if="${#fields.hasErrors('honorarios')}" th:errors="*{honorarios}"></div>

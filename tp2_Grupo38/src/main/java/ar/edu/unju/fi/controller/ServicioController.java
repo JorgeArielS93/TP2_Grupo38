@@ -73,7 +73,10 @@ import jakarta.validation.Valid;
 		}
 		
 		@PostMapping("/modificarPaseador")
-			public String modificarPaseador(@ModelAttribute("servicio")Servicio servicio) {
+			public String modificarPaseador(@Valid @ModelAttribute("servicio")Servicio servicio,BindingResult result) {
+			if(result.hasErrors()) {
+				return "nuevo_servicio";
+			}
 				for(Servicio servi : listaServicio.getServicio())
 				{
 					if(servi.getId().equals(servicio.getId()))
