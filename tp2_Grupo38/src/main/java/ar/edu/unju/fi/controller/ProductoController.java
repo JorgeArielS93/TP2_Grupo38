@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.listas.ListaProducto;
-import ar.edu.unju.fi.model.Consejo;
 import ar.edu.unju.fi.model.Producto;
 
 @Controller
@@ -54,7 +53,7 @@ public class ProductoController {
 			}
 			
 		}
-		model.addAttribute("product", productoEncontrado);
+		model.addAttribute("producto", productoEncontrado);
 		model.addAttribute("edicion", edicion);
 		return "nuevo_producto";
 	}
@@ -70,18 +69,19 @@ public class ProductoController {
 	    return "redirect:/producto/listarProducto";
 	}
 	
-	@PostMapping("/editar")
-	public String modificarProducto(@ModelAttribute("codProducto") Producto producto) {
+	@PostMapping("/editarProducto")
+	public String modificarProducto(@ModelAttribute("producto") Producto producto) {
 	    for (Producto prod : listaProducto.getProducto()) {
-	        if (prod.getCodigoProducto() == producto.getCodigoProducto()) {
-	        	prod.setCodigoProducto(producto.getCodigoProducto());
-	        	prod.setNombreProducto(producto.getNombreProducto());
-	        	prod.setPrecioProducto(producto.getPrecioProducto());
-	        	prod.setCategoriaProducto(producto.getCategoriaProducto());
-	        	prod.setImagenProducto(producto.getImagenProducto());
-	        	prod.setDescuentoProducto(producto.getDescuentoProducto());
+	        if ( prod.getCodigoProducto() == producto.getCodigoProducto() ) {
 	        	
-	        	break; // Agregar un break después de realizar las modificaciones
+	        	//prod.setCodigoProducto( producto.getCodigoProducto() );
+	        	prod.setNombreProducto( producto.getNombreProducto() );
+	        	prod.setPrecioProducto( producto.getPrecioProducto() );
+	        	prod.setCategoriaProducto(producto.getCategoriaProducto());
+	        	prod.setImagenProducto( producto.getImagenProducto() );
+	        	prod.setDescuentoProducto( producto.getDescuentoProducto() );
+	        	 //prod = producto;
+	        	break; 
 	        }
 	    }
 	    return "redirect:/producto/listarProducto";
