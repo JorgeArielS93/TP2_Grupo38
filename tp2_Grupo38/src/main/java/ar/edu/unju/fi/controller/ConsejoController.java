@@ -1,8 +1,10 @@
 package ar.edu.unju.fi.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,11 +14,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.listas.ListaConsejo;
 import ar.edu.unju.fi.model.Consejo;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/consejo")
 public class ConsejoController {
-	ListaConsejo listaConsejo = new ListaConsejo();
+	@Autowired
+	ListaConsejo listaConsejo;
+	
+	@Autowired
+	private Consejo consej;
 	
 	@GetMapping("/listarConsejo")
 	public String getListarConsejo(Model model) {
@@ -28,18 +35,23 @@ public class ConsejoController {
 	@GetMapping("/nuevoconsejo")
 	public String getNuevaConsejoPage(Model model) {
 		boolean edicion = false;
-		model.addAttribute("consej", new Consejo());
+		model.addAttribute("consej", consej);
 		model.addAttribute("edicion", edicion);
 		return "nuevo_consejo";
 	}
 	
 	@PostMapping("/guardarconsejo")
-	public String getGuardarSucursalPage(@ModelAttribute("consej") Consejo consejo) {
+	public ModelAndView getGuardarConsejoPage(@Valid @ModelAttribute("consej") Consejo consejo,BindingResult result) {
 	    ModelAndView modelView = new ModelAndView("consejo");
+	    if ( result.hasErrors()) {
+	    	modelView.setViewName("nuevo_consejo");
+	    	modelView.addObject("consej", consej);
+	    	return modelView;
+	    }
 	    listaConsejo.getConsejo().add(consejo);
 	    modelView.addObject("consejo", listaConsejo.getConsejo());
-	    //return modelView;
-	    return "redirect:/consejo/listarConsejo";
+	    return modelView;
+	    //return "redirect:/consejo/listarConsejo";
 	}
 	
 	
@@ -72,7 +84,7 @@ public class ConsejoController {
 	}
 	
 	@PostMapping("/editar")
-	public String modificarSucursal(@ModelAttribute("consej") Consejo consejo) {
+	public String modificarConsejo(@ModelAttribute("consej") Consejo consejo) {
 		
 		int consej =consejo.getNumConsejo();
 	    for (Consejo cons : listaConsejo.getConsejo()) {
