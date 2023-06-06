@@ -36,11 +36,9 @@
 						</div>
 						<div class="mb-3">
 							<label for="provincia" class="form-label">Provincia:</label>
-							<select id="provincia" name="sucursal_provincia" th:field="*{provincia}"
-								class="form-select">
+							<select id="provincia" name="sucursal_provincia" th:field="*{provincia}" class="form-select">
 								<option value="" selected>Seleccione una Opcion...</option>
-								<option value="JUJUY">Jujuy</option>
-								<option value="SALTA">Salta</option>
+								<option th:each="provincia : ${provincias}" th:value="${provincia}" th:text="${provincia}"></option>
 							</select>
 							<div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
 						</div>
