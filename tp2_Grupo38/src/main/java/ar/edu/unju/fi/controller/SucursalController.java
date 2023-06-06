@@ -13,6 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.listas.ListaSucursal;
 import ar.edu.unju.fi.model.Sucursal;
+import ar.edu.unju.fi.service.ICommonService;
+import ar.edu.unju.fi.service.ISucursalService;
+import ar.edu.unju.fi.service.imp.SucursalServiceImp;
 import jakarta.validation.Valid;
 
 @Controller
@@ -23,24 +26,33 @@ import jakarta.validation.Valid;
 								 * anotación @GetMapping("/listado"), se mapeará a la URL "/sucursal/listado".
 								 */
 public class SucursalController {
+	
 	@Autowired
-	private ListaSucursal listaSucursales;/* Crea un objeto listaSucursales de la clase ListaSucursal con
-														 * el Constructor por defecto que inicializa la lista sucursales
-														 * como un ArrayList vacío y luego agrega objetos de tipo
-														 * Sucursal
-														 */
+	private ICommonService commonService;
+	@Autowired
+	private ISucursalService sucursalService;
+	
+	/*
+	* @Autowired private ListaSucursal listaSucursales;
+	*//* Crea un objeto listaSucursales de la clase ListaSucursal con
+	* el Constructor por defecto que inicializa la lista sucursales
+	* como un ArrayList vacío y luego agrega objetos de tipo Sucursal
+	*/
 	@GetMapping("/listado")
 	public String getListaSucursalesPage(Model model) {
-		model.addAttribute("sucursales", listaSucursales.getSucursales());
-		model.addAttribute("activeSucursal", true);
+		model.addAttribute("sucursales", sucursalService.getLista());
+		model.addAttribute("activeSucursal", true);//hover de la pagina
 		return "sucursales";
 	}
-	@Autowired
-	private Sucursal sucursal;
+
+	/*
+	 * @Autowired private Sucursal sucursal;
+	 */
 	@GetMapping("/nuevo")
 	public String getNuevaSucursalPage(Model model) {
 		boolean edicion = false;
-		model.addAttribute("sucursal",sucursal );
+		model.addAttribute("sucursal",sucursalService.getSucursal() );
+		model.addAttribute("provincias",commonService.getProvincias());
 		model.addAttribute("edicion", edicion);
 		return "nueva_sucursal";
 	}
@@ -50,27 +62,23 @@ public class SucursalController {
 	    ModelAndView modelView = new ModelAndView("sucursales");
 	    if (result.hasErrors()) {
 			modelView.setViewName("nueva_sucursal");
+			modelView.addObject("provincias",commonService.getProvincias());
 			modelView.addObject("sucursal", sucursal);
 			return modelView;
-		}
-	    sucursal.setId("SUC-" + Sucursal.getNextId()); // Asignar el ID incremental desde el formulario
-	    listaSucursales.getSucursales().add(sucursal);
-	    modelView.addObject("sucursales", listaSucursales.getSucursales());
+		}    
+	    sucursalService.setId(sucursal);
+	    sucursalService.guardar(sucursal);
+	    modelView.addObject("sucursales", sucursalService.getLista());
 	    return modelView;
 	}
 	
 
 	@GetMapping("/editar/{id}")
 	public String getEditarSucursalPage(Model model, @PathVariable(value = "id") String id) {
-		Sucursal sucursalEncontrada = new Sucursal();
+		Sucursal sucursalEncontrada = sucursalService.getBy(id);
 		boolean edicion = true;
-		for (Sucursal sucu : listaSucursales.getSucursales()) {
-			if (sucu.getId().equals(id)) {
-				sucursalEncontrada = sucu;
-				break;
-			}
-		}
-		model.addAttribute("sucursal", sucursalEncontrada);
+		model.addAttribute("sucursal",sucursalEncontrada);
+		model.addAttribute("provincias", commonService.getProvincias());
 		model.addAttribute("edicion", edicion);
 		return "nueva_sucursal";
 	}
@@ -82,17 +90,7 @@ public class SucursalController {
 
 			return "nueva_sucursal";
 		}
-		for (Sucursal sucu : listaSucursales.getSucursales()) {
-			if (sucu.getId().equals(sucursal.getId())) {
-				sucu.setNombre(sucursal.getNombre());
-				sucu.setDireccion(sucursal.getDireccion());
-				sucu.setProvincia(sucursal.getProvincia());
-				sucu.setFechaInicio(sucursal.getFechaInicio());
-				sucu.setEmail(sucursal.getEmail());
-				sucu.setTelefono(sucursal.getTelefono());
-				break; // Agregar un break después de realizar las modificaciones
-			}
-		}
+		sucursalService.modificar(sucursal);
 
 		return "redirect:/sucursal/listado";
 	}
@@ -100,12 +98,8 @@ public class SucursalController {
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminarSucursal(@PathVariable(value="id")String id) {
-		for(Sucursal sucu: listaSucursales.getSucursales()) {
-			if(sucu.getId().equals(id)) {
-				listaSucursales.getSucursales().remove(sucu);
-				break;
-			}
-		}
+		Sucursal sucursalEncontrada=sucursalService.getBy(id);
+		sucursalService.eliminar(sucursalEncontrada);
 		return"redirect:/sucursal/listado";
 	}
 }
