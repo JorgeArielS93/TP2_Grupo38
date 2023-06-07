@@ -15,9 +15,10 @@ import jakarta.validation.constraints.Size;
 @Component
 public class Sucursal {
 	private String id;
-	 @NotEmpty(message = "El nombre no debe estar vacío")
-	    @Size(min = 3, max = 20, message = "El nombre debe tener entre 3 y 20 caracteres")
-	    @Pattern(regexp = "[a-zA-Z ]+", message = "El nombre solo puede contener letras y espacios")
+	@NotEmpty(message = "El nombre no debe estar vacío")
+	@Size(min = 3, max = 20, message = "El nombre debe tener entre 3 y 20 caracteres")
+	/* Con el PAttern acepta nombres con tilde */
+	@Pattern(regexp = "[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ ]+", message = "El nombre solo puede contener letras y espacios")
 	private String nombre;
 	@NotNull(message = "Debe ingresar una Direccion")
 	@Size(min=5, max=50,message = "La direccion debe contener entre 5 y 50 caracteres")
