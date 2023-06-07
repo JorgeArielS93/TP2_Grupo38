@@ -65,7 +65,7 @@ public class SucursalController {
 			modelView.addObject("provincias",commonService.getProvincias());
 			modelView.addObject("sucursal", sucursal);
 			return modelView;
-		}    
+		}
 	    sucursalService.setId(sucursal);
 	    sucursalService.guardar(sucursal);
 	    modelView.addObject("sucursales", sucursalService.getLista());
@@ -85,10 +85,13 @@ public class SucursalController {
 
 	
 	@PostMapping("/editar")
-	public String modificarSucursal(@Valid @ModelAttribute("sucursal") Sucursal sucursal, BindingResult result) {
+	public String modificarSucursal(@Valid @ModelAttribute("sucursal") Sucursal sucursal, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-
+			model.addAttribute("provincias", commonService.getProvincias());
+			boolean edicion = true;
+			model.addAttribute("edicion", edicion);
 			return "nueva_sucursal";
+			
 		}
 		sucursalService.modificar(sucursal);
 
