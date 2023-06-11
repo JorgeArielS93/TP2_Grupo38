@@ -12,7 +12,7 @@ public class ListaConsejo {
 	
 	public ListaConsejo() {
 		//servicios = new ArrayList<Servicio>();
-		consejo = new ArrayList<>();
+		consejo = new ArrayList<Consejo>();
 		consejo.add(new Consejo(1,"Visita regularmente al veterinario."," Todos debemos de hacernos un chequeo médico al menos una vez al año para saber cómo estamos de salud. Lo mismo aplica para perros, gatos, roedores, reptiles, aves e incluso peces, ya que es recomendable hacerlos un chequeo veterinario general una vez al año.\r\n"
 				+ "\r\n"
 				+ "El veterinario nos orientará y diseñará un plan de prevención de las innumerables enfermedades que atacan a los animales de compañía, enseñándonos a cuidar de la mejor manera posible a nuestro compañero.\r\n"

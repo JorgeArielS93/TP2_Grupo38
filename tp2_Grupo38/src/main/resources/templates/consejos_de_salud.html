@@ -9,7 +9,6 @@
 <!-- Bootstrap CSS and other CSS -->
 <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
 <link th:rel="stylesheet" type="text/css" th:href="@{/css/mis-estilos.css}"/>
-<!--  <link rel="stylesheet" th:href="@{/css/estilos.css}" />  -->
 
 <!-- Title of Sites -->
 <title>Consejos de Salud</title>
@@ -25,7 +24,7 @@
 					<h2 class="text-justify"> La Salud de tu Mascota </h2>
 					<article>
 						<div  class="row">
-							<h3 class="col  col-sm-12 col-xs-12 col-lg-9 col-md-9"> • 8 consejos para tener una mascota saludable </h3>
+							<h3 class="col  col-sm-12 col-xs-12 col-lg-9 col-md-9"> 8 consejos para tener una mascota saludable </h3>
 							<a th:href="@{/consejo/nuevoconsejo}" role="button" class="btn btn-success btn-lg  col-lg-3 col-md-3  col-sm-12 col-xs-12 ">Agregar Consejo</a>
 						</div>
 						<div class="card sombra mb-1 mt-2" th:each="consejito : ${consejo}">
