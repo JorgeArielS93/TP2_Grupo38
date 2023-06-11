@@ -30,6 +30,7 @@
 							<strong>Ingrese Datos del Consejo</strong>
 						</legend>
 						<form th:action="${edicion}?@{/consejo/editar}:@{/consejo/guardarconsejo}" th:object="${consej}"  method="post" class="formularioConsejo">
+						<input type="hidden" th:field="*{numConsejo}">
 							<div class="form-row">
 								<div class="form-group ">
 								    <label for="tituloconsejo">Titulo del Consejo:</label>
