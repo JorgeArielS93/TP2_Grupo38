@@ -1,12 +1,29 @@
 package ar.edu.unju.fi.model;
 
+import org.springframework.stereotype.Component;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Positive;
+
+@Component
 public class Producto {
 	// Atributos
 	private int codigoProducto=9 ;
+	@NotEmpty(message="No debe estar Vacio")
 	private String nombreProducto;
+	
+	@NotEmpty(message="No debe estar Vacio")
 	private Double precioProducto;
+	
+	@NotBlank(message="No debe estar Vacio")
 	private String categoriaProducto;
+	
+	@NotEmpty(message="No debe estar Vacio")
 	private String imagenProducto;
+	
+	@NotEmpty(message="No debe estar Vacio")
+	@Positive(message="solo se permiten valores positivos mayores a 0")
 	private int descuentoProducto;
 	
 	// Constructores
