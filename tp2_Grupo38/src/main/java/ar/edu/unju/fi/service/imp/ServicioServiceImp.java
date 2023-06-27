@@ -57,19 +57,19 @@ public class ServicioServiceImp implements IServicioService {
 
 	@Override
 	public void eliminar(Servicio servicioEncontrado) {
-		// TODO Auto-generated method stub
+		listaServicios.getServicio().remove(servicioEncontrado);
 		
 	}
 
 	@Override
 	public Servicio getServicio() {
 		// TODO Auto-generated method stub
-		return null;
+		return servicio;
 	}
 
 	@Override
 	public void setId(Servicio servicio) {
-		// TODO Auto-generated method stub
+		servicio.setId("PAS-" + Servicio.getNextId());
 		
 	}
 

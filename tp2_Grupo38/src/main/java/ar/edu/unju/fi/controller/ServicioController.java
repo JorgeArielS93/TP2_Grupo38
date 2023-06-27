@@ -11,24 +11,28 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unju.fi.listas.ListaServicio;
 import ar.edu.unju.fi.model.Servicio;
+import ar.edu.unju.fi.service.IServicioService;
 import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/servicio")
 	public class ServicioController{
+	
 	@Autowired
-		private ListaServicio listaServicio; /* Inyecta el obejo listaservicio y se pone en el contenedor
+	private IServicioService servicioService;
+		/*
+		 * @Autowired private ListaServicio listaServicio;
+		 */ /* Inyecta el obejo listaservicio y se pone en el contenedor
 		 													y el objeto ya esta creado en memoria listo para su uso, 
 		 													con todos sus atributos y metodos*/
 		
-		@Autowired
-		private Servicio servicio;
+//		@Autowired
+//		private Servicio servicio;
 		
 		@GetMapping("/listadoPaseador")
 		public String getServicioDePaseos(Model model) {
-			model.addAttribute("servicios", listaServicio.getServicio());
+			model.addAttribute("servicios", servicioService.getLista());
 			model.addAttribute("activeServicio", true);
 			return "servicio_de_paseos";
 		}
@@ -36,7 +40,7 @@ import jakarta.validation.Valid;
 		@GetMapping("/nuevoPaseador")
 		public String getNuevoServicioPage(Model model) {
 			boolean edicion=false;
-			model.addAttribute("servicio",servicio);
+			model.addAttribute("servicio",servicioService.getServicio());
 			model.addAttribute("edicion",edicion);
 			return "nuevo_servicio";
 			
@@ -51,57 +55,37 @@ import jakarta.validation.Valid;
 		    	modelView.addObject("servicio",servicio);
 		    	return modelView;
 		    }
-		    servicio.setId("PAS-" + Servicio.getNextId());
-		    listaServicio.getServicio().add(servicio);
-		    modelView.addObject("servicios",listaServicio.getServicio());
+		    servicioService.setId(servicio);
+		    //servicio.setId("PAS-" + Servicio.getNextId());
+		    servicioService.guardar(servicio);
+		    modelView.addObject("servicios",servicioService.getLista());
 		    return modelView;
 		}
 		
 		@GetMapping("/modificarPaseador/{id}")
 		public String getEditarServicioPage(Model model,@PathVariable(value="id")String id){
-			Servicio paseadorEncontrado =new Servicio();
+			Servicio paseadorEncontrado =servicioService.getBy(id);
 			boolean edicion=true;
-			for(Servicio servi : listaServicio.getServicio()) {
-				if(servi.getId().equals(id)) {
-				 paseadorEncontrado = servi;
-				 break;
-				}
-			}
 			model.addAttribute("servicio", paseadorEncontrado);
 			model.addAttribute("edicion",edicion);
 			return "nuevo_servicio";
 		}
 		
 		@PostMapping("/modificarPaseador")
-			public String modificarPaseador(@Valid @ModelAttribute("servicio")Servicio servicio,BindingResult result) {
+			public String modificarPaseador(@Valid @ModelAttribute("servicio")Servicio servicio,BindingResult result, Model model) {
 			if(result.hasErrors()) {
+				boolean edicion = true;
+				model.addAttribute("edicion", edicion);
 				return "nuevo_servicio";
 			}
-				for(Servicio servi : listaServicio.getServicio())
-				{
-					if(servi.getId().equals(servicio.getId()))
-					{
-						servi.setDni(servicio.getDni());
-						servi.setNombre(servicio.getNombre());
-						servi.setEdad(servicio.getEdad());
-						servi.setDomicilio(servicio.getDomicilio());
-						servi.setTelefono(servicio.getTelefono());
-						servi.setHonorarios(servicio.getHonorarios());				
-					}
-				}
+			servicioService.modificar(servicio);
 				return "redirect:/servicio/listadoPaseador";		
 			}	
 		
 		@GetMapping("/eliminarPaseador/{id}")
 		public String eliminarPaseador(@PathVariable(value="id") String id) {
-			
-				for(Servicio servi: listaServicio.getServicio())
-				{
-					if (servi.getId().equals(id)) {
-						listaServicio.getServicio().remove(servi);
-						break;
-					}
-				}
+			Servicio paseadorEncontrado=servicioService.getBy(id);
+			servicioService.eliminar(paseadorEncontrado);
 				return "redirect:/servicio/listadoPaseador";
 		}
 }
