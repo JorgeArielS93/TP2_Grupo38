@@ -11,26 +11,25 @@ import ar.edu.unju.fi.service.IProductoService;
 @Service
 public class ProductoServiceImp implements IProductoService {
 	@Autowired
-	ListaProducto listaProducto;
+	private ListaProducto listaProductos;
 	@Autowired
-	Producto producto;
+	private Producto producto;
 	
 	@Override
 	public List<Producto> getLista() {
-		// TODO Auto-generated method stub
-		return listaProducto.getProducto();
+		return listaProductos.getProducto();
 	}
 	
 	@Override
 	public void guardar(Producto producto) {
-		// TODO Auto-generated method stub
-		listaProducto.getProducto().add(producto);
+		listaProductos.getProducto().add(producto);
 	}
+	
 	@Override
-	public Producto getBy(int codProducto) {
+	public Producto getBy(String codProducto) {
 		Producto productoEncontrado= null;
-		for(Producto prod : listaProducto.getProducto()) {
-			if(prod.getCodigoProducto() == codProducto) {
+		for(Producto prod : listaProductos.getProducto()) {
+			if(prod.getCodigoProducto().equals(codProducto)) {
 				productoEncontrado = prod;
 				break;
 			}
@@ -40,30 +39,27 @@ public class ProductoServiceImp implements IProductoService {
 	
 	@Override
 	public void eliminar(Producto productoEncontrado) {
-		// TODO Auto-generated method stub
-		listaProducto.getProducto().remove(productoEncontrado);
+		listaProductos.getProducto().remove(productoEncontrado);
 	}
 	@Override
 	public Producto getProducto() {
-		// TODO Auto-generated method stub
-		return null;
+		return producto;
 	}
 	@Override
 	public void setId(Producto producto) {
-		// TODO Auto-generated method stub
-		
+		producto.setCodigoProducto("PROD-"+Producto.getNextId());
 	}
 
 	@Override
 	public void modificar(Producto producto) {
-		// TODO Auto-generated method stub
-		for(Producto prod : listaProducto.getProducto() ) {
-			if ( prod.getCodigoProducto() == producto.getCodigoProducto()  )
-				prod.setNombreProducto(producto.getNombreProducto());
-				prod.setPrecioProducto( producto.getPrecioProducto() );
+		for (Producto prod : listaProductos.getProducto()) {
+			if (prod.getCodigoProducto().equals(producto.getCodigoProducto())) {
 				prod.setCategoriaProducto(producto.getCategoriaProducto());
-				prod.setImagenProducto(producto.getImagenProducto());
 				prod.setDescuentoProducto(producto.getDescuentoProducto());
+				prod.setImagenProducto(producto.getImagenProducto());
+				prod.setNombreProducto(producto.getNombreProducto());
+				prod.setPrecioProducto(producto.getPrecioProducto());
+			}
 		}
 	}
 

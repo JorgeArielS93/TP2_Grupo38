@@ -9,7 +9,7 @@ public interface IProductoService {
 	
 	List<Producto> getLista();
 	void guardar(Producto producto);
-	Producto getBy(int codProducto);
+	Producto getBy(String codProducto);
 	void modificar(Producto producto);
 	void eliminar (Producto productoEncontrado);
 	Producto getProducto();
