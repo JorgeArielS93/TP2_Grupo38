@@ -63,7 +63,6 @@ public class ServicioServiceImp implements IServicioService {
 
 	@Override
 	public Servicio getServicio() {
-		// TODO Auto-generated method stub
 		return servicio;
 	}
 
